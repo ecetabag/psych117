@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Responsive Split Timeline</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    /* RESET & LAYOUT */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      height: 100%;
+      font-family: sans-serif;
+      background: #fff;
+      color: #000;
+    }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    /* TWO-COLUMN WRAPPER */
+    .timelines {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      width: 100%;
+      max-width: 900px;
+    }
+
+    .timeline {
+      position: relative;
+      flex: 1 1 300px;
+      min-width: 250px;
+      padding-left: 1.5rem;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 0.5rem;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #000;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 1rem 0;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: 0.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0.75rem;
+      height: 0.75rem;
+      background: #000;
+      border-radius: 50%;
+    }
+
+    .timeline-item::after {
+      content: "";
+      position: absolute;
+      left: calc(0.5rem + 0.75rem);
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1.5rem;
+      height: 2px;
+      background: #000;
+    }
+
+    .timeline-item a {
+      display: inline-block;
+      margin-left: calc(0.5rem + 0.75rem + 1.5rem + 0.5rem);
+      color: #000;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      white-space: nowrap;
+    }
+    .timeline-item a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 500px) {
+      .timelines {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .timeline {
+        flex: 1 1 auto;
+        padding-left: 1rem;
+      }
+      .timeline-item a {
+        margin-left: calc(0.5rem + 0.75rem + 1rem);
+      }
+    }
+
+    /* FIXED LOGO */
+    .logo {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 80px;
+      height: auto;
+      z-index: 100;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="timelines">
+    <div class="timeline">
+      <div class="timeline-item"><a href="mid1.html">Midterm 1</a></div>
+      <div class="timeline-item"><a href="mid2.html">Midterm 2</a></div>
+      <div class="timeline-item"><a href="ws.html">Worksheets</a></div>
+      <div class="timeline-item"><a href="jeopardy1.html">Midterm 1 Jeopardy</a></div>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item"><a href="jeo2.html">Midterm 2 Jeopardy</a></div>
+      <div class="timeline-item"><a href="kah.html">Final Kahoot</a></div>
+      <div class="timeline-item"><a href="mock1.html">Final Mock 1</a></div>
+      <div class="timeline-item"><a href="mock2.html">Final Mock 2</a></div>
+      <div class="timeline-item"><a href="mock3.html">Final Mock 3</a></div>
+    </div>
+  </div>
+
+  <img src="logo.png" alt="Logo" class="logo">
+
+</body>
+</html>

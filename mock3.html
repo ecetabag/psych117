@@ -1,0 +1,369 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Psych 117 Mock Quiz</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f9f9f9; }
+        .question { margin-bottom: 20px; padding: 15px; background: #fff; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
+        .correct { color: green; }
+        .incorrect { color: red; }
+        .explanation { display: none; margin-top: 10px; }
+        #score { font-size: 20px; margin-top: 30px; }
+        button { padding: 10px 20px; font-size: 16px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Psych 117 Mock 3</h1>
+          <a href="index.html"> <p> <- BACK </p></a>
+
+    <form id="quizForm">
+<div class="question">
+<p><strong>Q1: What memory system allows retrieval of past personal events?</strong></p>
+<label><input type="radio" name="q1" value="correct"> Episodic memory</label><br>
+<label><input type="radio" name="q1" value="wrong"> Semantic memory</label><br>
+<label><input type="radio" name="q1" value="wrong"> Procedural memory</label><br>
+<label><input type="radio" name="q1" value="wrong"> Priming</label><br>
+<div class="explanation" id="explanation1" data-text="Episodic memory stores personal experiences and past events."></div>
+</div>
+<div class="question">
+<p><strong>Q2: Which brain structure is most sensitive to oxygen deprivation?</strong></p>
+<label><input type="radio" name="q2" value="wrong"> Cerebellum</label><br>
+<label><input type="radio" name="q2" value="correct"> Hippocampus</label><br>
+<label><input type="radio" name="q2" value="wrong"> Amygdala</label><br>
+<label><input type="radio" name="q2" value="wrong"> Basal ganglia</label><br>
+<div class="explanation" id="explanation2" data-text="The hippocampus is highly metabolically active and vulnerable to anoxia."></div>
+</div>
+<div class="question">
+<p><strong>Q3: Which condition involves loss of memory about past events?</strong></p>
+<label><input type="radio" name="q3" value="wrong"> Anterograde amnesia</label><br>
+<label><input type="radio" name="q3" value="correct"> Retrograde amnesia</label><br>
+<label><input type="radio" name="q3" value="wrong"> Procedural amnesia</label><br>
+<label><input type="radio" name="q3" value="wrong"> Priming deficit</label><br>
+<div class="explanation" id="explanation3" data-text="Retrograde amnesia refers to loss of pre-existing memories."></div>
+</div>
+<div class="question">
+<p><strong>Q4: Which memory system is intact in H.M. despite his surgery?</strong></p>
+<label><input type="radio" name="q4" value="wrong"> Declarative memory</label><br>
+<label><input type="radio" name="q4" value="wrong"> Semantic memory</label><br>
+<label><input type="radio" name="q4" value="correct"> Procedural memory</label><br>
+<label><input type="radio" name="q4" value="wrong"> Episodic memory</label><br>
+<div class="explanation" id="explanation4" data-text="H.M. retained procedural memory, showing improvement in motor tasks."></div>
+</div>
+<div class="question">
+<p><strong>Q5: What is the function of the Papez circuit?</strong></p>
+<label><input type="radio" name="q5" value="wrong"> Regulation of motor learning</label><br>
+<label><input type="radio" name="q5" value="wrong"> Coordination of visual reflexes</label><br>
+<label><input type="radio" name="q5" value="correct"> Consolidation of episodic memory</label><br>
+<label><input type="radio" name="q5" value="wrong"> Processing auditory input</label><br>
+<div class="explanation" id="explanation5" data-text="The Papez circuit is crucial for long-term episodic memory consolidation."></div>
+</div>
+<div class="question">
+<p><strong>Q6: Which vitamin deficiency leads to Wernicke-Korsakoff syndrome?</strong></p>
+<label><input type="radio" name="q6" value="correct"> Vitamin B1</label><br>
+<label><input type="radio" name="q6" value="wrong"> Vitamin B12</label><br>
+<label><input type="radio" name="q6" value="wrong"> Vitamin D</label><br>
+<label><input type="radio" name="q6" value="wrong"> Vitamin C</label><br>
+<div class="explanation" id="explanation6" data-text="Thiamine (Vitamin B1) deficiency is the main cause."></div>
+</div>
+<div class="question">
+<p><strong>Q7: Priming is best described as:</strong></p>
+<label><input type="radio" name="q7" value="wrong"> A conscious recall of facts</label><br>
+<label><input type="radio" name="q7" value="wrong"> Emotional memory formation</label><br>
+<label><input type="radio" name="q7" value="correct"> Unconscious influence of past exposure</label><br>
+<label><input type="radio" name="q7" value="wrong"> Learning new motor sequences</label><br>
+<div class="explanation" id="explanation7" data-text="Priming is an implicit memory process that influences responses without awareness."></div>
+</div>
+<div class="question">
+<p><strong>Q8: Which part of the prefrontal cortex is associated with emotional decision-making?</strong></p>
+<label><input type="radio" name="q8" value="wrong"> Dorsolateral</label><br>
+<label><input type="radio" name="q8" value="correct"> Ventromedial</label><br>
+<label><input type="radio" name="q8" value="wrong"> Inferior parietal</label><br>
+<label><input type="radio" name="q8" value="wrong"> Primary motor</label><br>
+<div class="explanation" id="explanation8" data-text="The ventromedial PFC is linked with emotion-driven behavior."></div>
+</div>
+<div class="question">
+<p><strong>Q9: Impairment in switching between tasks suggests damage to:</strong></p>
+<label><input type="radio" name="q9" value="wrong"> Occipital lobe</label><br>
+<label><input type="radio" name="q9" value="wrong"> Parietal lobe</label><br>
+<label><input type="radio" name="q9" value="correct"> Frontal lobe</label><br>
+<label><input type="radio" name="q9" value="wrong"> Temporal lobe</label><br>
+<div class="explanation" id="explanation9" data-text="The frontal lobe, especially the dorsolateral PFC, supports cognitive flexibility."></div>
+</div>
+<div class="question">
+<p><strong>Q10: A patient who repeatedly fails to change strategy in a sorting task likely has:</strong></p>
+<label><input type="radio" name="q10" value="wrong"> Aphasia</label><br>
+<label><input type="radio" name="q10" value="wrong"> Agnosia</label><br>
+<label><input type="radio" name="q10" value="correct"> Perseveration</label><br>
+<label><input type="radio" name="q10" value="wrong"> Utilization behavior</label><br>
+<div class="explanation" id="explanation10" data-text="Perseveration is the repetitive application of an old rule despite changes."></div>
+</div>
+<div class="question">
+<p><strong>Q11: Imitating gestures unconsciously in social situations may indicate:</strong></p>
+<label><input type="radio" name="q11" value="wrong"> Motor apraxia</label><br>
+<label><input type="radio" name="q11" value="wrong"> Neglect</label><br>
+<label><input type="radio" name="q11" value="wrong"> Utilization behavior</label><br>
+<label><input type="radio" name="q11" value="correct"> Imitation behavior</label><br>
+<div class="explanation" id="explanation11" data-text="Imitation behavior is common in patients with frontal lobe damage."></div>
+</div>
+<div class="question">
+<p><strong>Q12: Damage to which lobe affects judgment and impulse control the most?</strong></p>
+<label><input type="radio" name="q12" value="wrong"> Occipital</label><br>
+<label><input type="radio" name="q12" value="wrong"> Temporal</label><br>
+<label><input type="radio" name="q12" value="correct"> Frontal</label><br>
+<label><input type="radio" name="q12" value="wrong"> Parietal</label><br>
+<div class="explanation" id="explanation12" data-text="The frontal lobe, especially the orbitofrontal area, governs impulse control."></div>
+</div>
+<div class="question">
+<p><strong>Q13: The Wisconsin Card Sorting Test primarily assesses:</strong></p>
+<label><input type="radio" name="q13" value="wrong"> Memory span</label><br>
+<label><input type="radio" name="q13" value="wrong"> Inhibitory control</label><br>
+<label><input type="radio" name="q13" value="wrong"> Visual scanning</label><br>
+<label><input type="radio" name="q13" value="correct"> Cognitive flexibility</label><br>
+<div class="explanation" id="explanation13" data-text="It tests cognitive flexibility and abstract thinking."></div>
+</div>
+<div class="question">
+<p><strong>Q14: Flat affect and lack of motivation result from damage to:</strong></p>
+<label><input type="radio" name="q14" value="wrong"> Limbic system</label><br>
+<label><input type="radio" name="q14" value="wrong"> Occipital cortex</label><br>
+<label><input type="radio" name="q14" value="correct"> Frontal lobes</label><br>
+<label><input type="radio" name="q14" value="wrong"> Cerebellum</label><br>
+<div class="explanation" id="explanation14" data-text="Frontal lobe damage, particularly medial PFC, leads to apathy and flat affect."></div>
+</div>
+<div class="question">
+<p><strong>Q15: The inability to perceive motion is known as:</strong></p>
+<label><input type="radio" name="q15" value="wrong"> Achromatopsia</label><br>
+<label><input type="radio" name="q15" value="correct"> Akinetopsia</label><br>
+<label><input type="radio" name="q15" value="wrong"> Prosopagnosia</label><br>
+<label><input type="radio" name="q15" value="wrong"> Visual agnosia</label><br>
+<div class="explanation" id="explanation15" data-text="Akinetopsia is motion blindness from V5 damage."></div>
+</div>
+<div class="question">
+<p><strong>Q16: Which deficit results in lack of awareness of stimuli on one side of space?</strong></p>
+<label><input type="radio" name="q16" value="wrong"> Visual agnosia</label><br>
+<label><input type="radio" name="q16" value="correct"> Hemispatial neglect</label><br>
+<label><input type="radio" name="q16" value="wrong"> Prosopagnosia</label><br>
+<label><input type="radio" name="q16" value="wrong"> Anosognosia</label><br>
+<div class="explanation" id="explanation16" data-text="Hemispatial neglect is the failure to attend to one side, usually the left."></div>
+</div>
+<div class="question">
+<p><strong>Q17: What type of processing is impaired in right parietal damage?</strong></p>
+<label><input type="radio" name="q17" value="wrong"> Local detail</label><br>
+<label><input type="radio" name="q17" value="wrong"> Syntax</label><br>
+<label><input type="radio" name="q17" value="correct"> Global spatial awareness</label><br>
+<label><input type="radio" name="q17" value="wrong"> Auditory sequencing</label><br>
+<div class="explanation" id="explanation17" data-text="Right parietal damage disrupts global spatial processing."></div>
+</div>
+<div class="question">
+<p><strong>Q18: The ventral visual stream helps identify:</strong></p>
+<label><input type="radio" name="q18" value="wrong"> Where objects are</label><br>
+<label><input type="radio" name="q18" value="correct"> What objects are</label><br>
+<label><input type="radio" name="q18" value="wrong"> How objects move</label><br>
+<label><input type="radio" name="q18" value="wrong"> When objects change</label><br>
+<div class="explanation" id="explanation18" data-text="The ventral stream processes object identity (what)."></div>
+</div>
+<div class="question">
+<p><strong>Q19: Someone with visual agnosia cannot:</strong></p>
+<label><input type="radio" name="q19" value="wrong"> Describe the shape of an object</label><br>
+<label><input type="radio" name="q19" value="correct"> Recognize the object by sight</label><br>
+<label><input type="radio" name="q19" value="wrong"> Recognize the object by sound</label><br>
+<label><input type="radio" name="q19" value="wrong"> Move their eyes</label><br>
+<div class="explanation" id="explanation19" data-text="They cannot identify the object visually, but other senses are intact."></div>
+</div>
+<div class="question">
+<p><strong>Q20: Developmental prosopagnosia specifically affects recognition of:</strong></p>
+<label><input type="radio" name="q20" value="wrong"> Objects</label><br>
+<label><input type="radio" name="q20" value="wrong"> Words</label><br>
+<label><input type="radio" name="q20" value="correct"> Faces</label><br>
+<label><input type="radio" name="q20" value="wrong"> Places</label><br>
+<div class="explanation" id="explanation20" data-text="Face blindness is characteristic of prosopagnosia."></div>
+</div>
+<div class="question">
+<p><strong>Q21: Which disorder is linked with failure to process the whole configuration of an image?</strong></p>
+<label><input type="radio" name="q21" value="correct"> Hemispatial neglect</label><br>
+<label><input type="radio" name="q21" value="wrong"> Aphasia</label><br>
+<label><input type="radio" name="q21" value="wrong"> Color agnosia</label><br>
+<label><input type="radio" name="q21" value="wrong"> Anterograde amnesia</label><br>
+<div class="explanation" id="explanation21" data-text="Neglect affects the ability to perceive the full scene, often ignoring the left side."></div>
+</div>
+<div class="question">
+<p><strong>Q22: Which hemisphere is specialized for global visual processing?</strong></p>
+<label><input type="radio" name="q22" value="wrong"> Left</label><br>
+<label><input type="radio" name="q22" value="correct"> Right</label><br>
+<label><input type="radio" name="q22" value="wrong"> Both equally</label><br>
+<label><input type="radio" name="q22" value="wrong"> Neither</label><br>
+<div class="explanation" id="explanation22" data-text="The right hemisphere processes global features."></div>
+</div>
+<div class="question">
+<p><strong>Q23: The neurotransmitter GABA acts to:</strong></p>
+<label><input type="radio" name="q23" value="wrong"> Excite neurons</label><br>
+<label><input type="radio" name="q23" value="correct"> Inhibit neural activity</label><br>
+<label><input type="radio" name="q23" value="wrong"> Regulate blood flow</label><br>
+<label><input type="radio" name="q23" value="wrong"> Transmit dopamine</label><br>
+<div class="explanation" id="explanation23" data-text="GABA is the main inhibitory neurotransmitter."></div>
+</div>
+<div class="question">
+<p><strong>Q24: Which projection neurotransmitter originates from the substantia nigra?</strong></p>
+<label><input type="radio" name="q24" value="wrong"> Acetylcholine</label><br>
+<label><input type="radio" name="q24" value="wrong"> Serotonin</label><br>
+<label><input type="radio" name="q24" value="correct"> Dopamine</label><br>
+<label><input type="radio" name="q24" value="wrong"> Glutamate</label><br>
+<div class="explanation" id="explanation24" data-text="Dopamine is produced in the substantia nigra and projects to the striatum."></div>
+</div>
+<div class="question">
+<p><strong>Q25: Acetylcholine is most associated with which brain function?</strong></p>
+<label><input type="radio" name="q25" value="wrong"> Motor coordination</label><br>
+<label><input type="radio" name="q25" value="correct"> Long-term memory</label><br>
+<label><input type="radio" name="q25" value="wrong"> Mood regulation</label><br>
+<label><input type="radio" name="q25" value="wrong"> Pain perception</label><br>
+<div class="explanation" id="explanation25" data-text="ACh supports LTM through action in the hippocampus."></div>
+</div>
+<div class="question">
+<p><strong>Q26: Which neurotransmitter is boosted by SSRIs?</strong></p>
+<label><input type="radio" name="q26" value="wrong"> GABA</label><br>
+<label><input type="radio" name="q26" value="correct"> Serotonin</label><br>
+<label><input type="radio" name="q26" value="wrong"> Norepinephrine</label><br>
+<label><input type="radio" name="q26" value="wrong"> Acetylcholine</label><br>
+<div class="explanation" id="explanation26" data-text="SSRIs increase serotonin levels in the synapse."></div>
+</div>
+<div class="question">
+<p><strong>Q27: Corpus callosum function is necessary for:</strong></p>
+<label><input type="radio" name="q27" value="wrong"> Visual acuity</label><br>
+<label><input type="radio" name="q27" value="wrong"> Lateralized motor control</label><br>
+<label><input type="radio" name="q27" value="correct"> Interhemispheric communication</label><br>
+<label><input type="radio" name="q27" value="wrong"> Auditory filtering</label><br>
+<div class="explanation" id="explanation27" data-text="It connects the hemispheres for coordinated processing."></div>
+</div>
+<div class="question">
+<p><strong>Q28: A person who reaches with their left hand for a hidden object without knowing why may have:</strong></p>
+<label><input type="radio" name="q28" value="wrong"> Anosognosia</label><br>
+<label><input type="radio" name="q28" value="correct"> Alien hand syndrome</label><br>
+<label><input type="radio" name="q28" value="wrong"> Neglect</label><br>
+<label><input type="radio" name="q28" value="wrong"> Tactile agnosia</label><br>
+<div class="explanation" id="explanation28" data-text="Alien hand syndrome can occur after corpus callosum is severed."></div>
+</div>
+<div class="question">
+<p><strong>Q29: Which movement disorder is characterized by jerky involuntary movements?</strong></p>
+<label><input type="radio" name="q29" value="wrong"> Parkinson's</label><br>
+<label><input type="radio" name="q29" value="wrong"> Multiple sclerosis</label><br>
+<label><input type="radio" name="q29" value="wrong"> ALS</label><br>
+<label><input type="radio" name="q29" value="correct"> Huntington’s</label><br>
+<div class="explanation" id="explanation29" data-text="Chorea is a hallmark of Huntington’s disease."></div>
+</div>
+<div class="question">
+<p><strong>Q30: Which condition features a resting tremor and bradykinesia?</strong></p>
+<label><input type="radio" name="q30" value="wrong"> ALS</label><br>
+<label><input type="radio" name="q30" value="wrong"> Benign tremor</label><br>
+<label><input type="radio" name="q30" value="correct"> Parkinson’s disease</label><br>
+<label><input type="radio" name="q30" value="wrong"> Tourette’s syndrome</label><br>
+<div class="explanation" id="explanation30" data-text="These are classic signs of Parkinson’s."></div>
+</div>
+<div class="question">
+<p><strong>Q31: What part of the brain degenerates in Parkinson's?</strong></p>
+<label><input type="radio" name="q31" value="wrong"> Cerebellum</label><br>
+<label><input type="radio" name="q31" value="wrong"> Caudate nucleus</label><br>
+<label><input type="radio" name="q31" value="correct"> Substantia nigra</label><br>
+<label><input type="radio" name="q31" value="wrong"> Corpus callosum</label><br>
+<div class="explanation" id="explanation31" data-text="Loss of dopaminergic neurons in the substantia nigra leads to Parkinson’s."></div>
+</div>
+<div class="question">
+<p><strong>Q32: Which treatment directly increases dopamine synthesis?</strong></p>
+<label><input type="radio" name="q32" value="wrong"> SSRIs</label><br>
+<label><input type="radio" name="q32" value="correct"> L-dopa</label><br>
+<label><input type="radio" name="q32" value="wrong"> Antipsychotics</label><br>
+<label><input type="radio" name="q32" value="wrong"> Beta-blockers</label><br>
+<div class="explanation" id="explanation32" data-text="L-dopa is a precursor to dopamine used in Parkinson’s treatment."></div>
+</div>
+<div class="question">
+<p><strong>Q33: Gliomas typically arise from:</strong></p>
+<label><input type="radio" name="q33" value="wrong"> Neurons</label><br>
+<label><input type="radio" name="q33" value="correct"> Astrocytes</label><br>
+<label><input type="radio" name="q33" value="wrong"> Oligodendrocytes</label><br>
+<label><input type="radio" name="q33" value="wrong"> Ependymal cells</label><br>
+<div class="explanation" id="explanation33" data-text="Astrocytes, not neurons, are the source of most brain tumors."></div>
+</div>
+<div class="question">
+<p><strong>Q34: Meningiomas differ from gliomas because they:</strong></p>
+<label><input type="radio" name="q34" value="wrong"> Are aggressive</label><br>
+<label><input type="radio" name="q34" value="wrong"> Grow rapidly</label><br>
+<label><input type="radio" name="q34" value="correct"> Have clear borders and are removable</label><br>
+<label><input type="radio" name="q34" value="wrong"> Originate from neurons</label><br>
+<div class="explanation" id="explanation34" data-text="Meningiomas are benign and surgically resectable."></div>
+</div>
+<div class="question">
+<p><strong>Q35: Which cancers are most likely to metastasize to the brain?</strong></p>
+<label><input type="radio" name="q35" value="wrong"> Prostate and thyroid</label><br>
+<label><input type="radio" name="q35" value="correct"> Lung and breast</label><br>
+<label><input type="radio" name="q35" value="wrong"> Skin and bladder</label><br>
+<label><input type="radio" name="q35" value="wrong"> Stomach and liver</label><br>
+<div class="explanation" id="explanation35" data-text="Lung, breast, melanoma, kidney, and colon commonly metastasize to the brain."></div>
+</div>
+
+        <button type="button" onclick="checkAnswers()">Submit</button>
+    </form>
+    <div id="score"></div>
+    <script>
+        function checkAnswers() {
+            let correct = 0;
+            const total = 35;
+            for (let i = 1; i <= total; i++) {
+                const question = document.querySelector('input[name="q' + i + '"]:checked');
+                const explanation = document.getElementById('explanation' + i);
+                if (question) {
+                    if (question.value === "correct") {
+                        correct++;
+                        explanation.innerHTML = '<span class="correct">Correct!</span> ' + explanation.dataset.text;
+                    } else {
+                        explanation.innerHTML = '<span class="incorrect">Incorrect.</span> ' + explanation.dataset.text;
+                    }
+                } else {
+                    explanation.innerHTML = '<span class="incorrect">No answer selected.</span> ' + explanation.dataset.text;
+                }
+                explanation.style.display = 'block';
+            }
+            document.getElementById('score').textContent = `You got ${correct} out of ${total} correct.`;
+        }
+    </script>
+
+<div id="correctAnswersList" style="display:none; margin-top:30px;">
+    <h2>Correct Answers</h2>
+    <ol>
+<li><strong>Episodic memory</strong></li>
+<li><strong>Hippocampus</strong></li>
+<li><strong>Retrograde amnesia</strong></li>
+<li><strong>Procedural memory</strong></li>
+<li><strong>Consolidation of episodic memory</strong></li>
+<li><strong>Vitamin B1</strong></li>
+<li><strong>Unconscious influence of past exposure</strong></li>
+<li><strong>Ventromedial</strong></li>
+<li><strong>Frontal lobe</strong></li>
+<li><strong>Perseveration</strong></li>
+<li><strong>Imitation behavior</strong></li>
+<li><strong>Frontal</strong></li>
+<li><strong>Cognitive flexibility</strong></li>
+<li><strong>Frontal lobes</strong></li>
+<li><strong>Akinetopsia</strong></li>
+<li><strong>Hemispatial neglect</strong></li>
+<li><strong>Global spatial awareness</strong></li>
+<li><strong>What objects are</strong></li>
+<li><strong>Recognize the object by sight</strong></li>
+<li><strong>Faces</strong></li>
+<li><strong>Hemispatial neglect</strong></li>
+<li><strong>Right</strong></li>
+<li><strong>Inhibit neural activity</strong></li>
+<li><strong>Dopamine</strong></li>
+<li><strong>Long-term memory</strong></li>
+<li><strong>Serotonin</strong></li>
+<li><strong>Interhemispheric communication</strong></li>
+<li><strong>Alien hand syndrome</strong></li>
+<li><strong>Huntington’s</strong></li>
+<li><strong>Parkinson’s disease</strong></li>
+<li><strong>Substantia nigra</strong></li>
+<li><strong>L-dopa</strong></li>
+<li><strong>Astrocytes</strong></li>
+<li><strong>Have clear borders and are removable</strong></li>
+<li><strong>Lung and breast</strong></li>
+</ol></div>
+</body>
+</html>

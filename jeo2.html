@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Midterm 2 Jeopardy Short‑Answer Quiz</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 20px;
+      background: #f9f9f9;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .question {
+      margin-bottom: 25px;
+    }
+    .question label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+    .question textarea {
+      width: 100%;
+      height: 60px;
+      padding: 8px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      resize: vertical;
+    }
+    .answer {
+      display: none;
+      margin-top: 8px;
+      font-style: italic;
+      color: #005;
+    }
+    button {
+      display: block;
+      margin: 30px auto;
+      padding: 12px 25px;
+      font-size: 1em;
+      background: #356ba2;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #2a5480;
+    }
+  </style>
+  <script>
+    function showAnswers() {
+      document.querySelectorAll('.answer').forEach(a => a.style.display = 'block');
+    }
+  </script>
+</head>
+<body>
+
+  <h1>Midterm 2 Jeopardy (Short‑Answer)</h1>
+    <a href="index.html"> <p> <- BACK </p></a>
+
+  <form onsubmit="event.preventDefault(); showAnswers();">
+
+    <!-- Alzheimer’s -->
+    <div class="question">
+      <label>1. What is the age of onset for Alzheimer’s?</label>
+      <textarea placeholder="Your answer…"></textarea>
+      <div class="answer">Answer: 70–80 years old.</div>
+    </div>
+
+    <div class="question">
+      <label>2. What are the cognitive deficits of Alzheimer’s?</label>
+      <textarea placeholder="Your answer…"></textarea>
+      <div class="answer">
+        Answer: Profound anterograde memory loss; anomic/empty/circumlocutory language; visuospatial disturbances.
+      </div>
+    </div>
+
+    <div class="question">
+      <label>3. What are the behavioral, sensory, and motor deficits of Alzheimer’s?</label>
+      <textarea placeholder="Your answer…"></textarea>
+      <div class="answer">
+        Answer: No early personality changes; anosognosia; behavioral deficits later; no sensory/motor deficits.
+      </div>
+    </div>
+
+    <div class="question">
+      <label>4. What is cortical atrophy and where does it occur in Alzheimer’s?</label>
+      <textarea placeholder="Your answer…"></textarea>
+      <div class="answer">
+        Answer: Loss of neurons/tissue → wide sulci &amp; enlarged ventricles; affects temporal &amp; parietal lobes.
+      </div>
+    </div>
+
+    <div class="question">
+      <label>5. What is the pathology of Alzheimer’s and how do we identify it?</label>
+      <textarea placeholder="Your answer…"></textarea>
+      <div class="answer">
+        Answer: Amyloid plaques &amp; tau neurofibrillary tangles; identified via PET scans for amyloid/tau.
+      </div>
+    </div>
+
+    <!-- Dementia -->
+    <div class="question">
+      <label>6. What are the two drug types used to treat AD and do they cure the disease?</label>
+      <textarea placeholder="Your answer…"></textarea>
+      <div class="answer">
+        Answer: Cholinesterase enhancers and anti–β‑amyloid drugs; they delay symptoms but do not cure.
+      </div>
+    </div>
+
+    <div class="question">
+      <label>7. What are the cognitive and behavioral deficits of FTD (Pick’s) and where is the damage?</label>
+      <textarea placeholder="Your answer…"></textarea>
+      <div class="answer">
+        Answer: Profound executive dysfunction and early personality change; damage to frontal &amp; temporal lobes.
+      </div>
+    </div>
+
+    <div class="question">
+      <label>8. What is the pathology of FTD and why is it often misdiagnosed?</label>
+      <textarea placeholder="Your answer…"></textarea>
+      <div class="answer">
+        Answer: Pick’s bodies (tau accumulations); often mistaken for psychiatric illness.
+      </div>
+    </div>
+
+    <div class="question">
+      <label>9. What type of dementia is shown on MRI and how does decline proceed?</label>
+      <textarea placeholder="Your answer…"></textarea>
+      <div class="answer">
+        Answer: Vascular (multi‑infarct) dementia; step‑wise decline after each stroke.
+      </div>
+    </div>
+
+    <div class="question">
+      <label>10. What are four reversible causes of dementia?</label>
+      <textarea placeholder="Your answer…"></textarea>
+      <div class="answer">
+        Answer: Severe depression; B12/folate deficiency; hypothyroidism; infections (e.g. neurosyphilis).
+      </div>
+    </div>
+
+    <!-- Cognitive Methods -->
+    <div class="question">
+      <label>11. Difference between lesion and physiological methods?</label>
+      <textarea placeholder="Your answer…"></textarea>
+      <div class="answer">
+        Answer: Lesion shows areas necessary for function; physiological shows areas active during tasks.
+      </div>
+    </div>
+
+    <div class="question">
+      <label>12. How does fMRI work?</label>
+      <textarea placeholder="Your answer…"></textarea>
+      <div class="answer">
+        Answer: Detects increased oxyhemoglobin via magnet resonance in active brain regions.
+      </div>
+    </div>
+
+    <div class="question">
+      <label>13. What are ERPs? Lesion or physiological?</label>
+      <textarea placeholder="Your answer…"></textarea>
+      <div class="answer">
+        Answer: Event‑related potentials are EEG‑measured electrical responses; a physiological method.
+      </div>
+    </div>
+
+    <div class="question">
+      <label>14. Difference between functional specialization and integration?</label>
+      <textarea placeholder="Your answer…"></textarea>
+      <div class="answer">
+        Answer: Specialization = distinct areas for processes; integration = cognitive operations emerge from interactions.
+      </div>
+    </div>
+
+    <div class="question">
+      <label>15. What is the best physiological method and why?</label>
+      <textarea placeholder="Your answer…"></textarea>
+      <div class="answer">
+        Answer: fMRI—for noninvasiveness, good spatial &amp; adequate temporal resolution.
+      </div>
+    </div>
+
+    <!-- Memory Disorders -->
+    <div class="question">
+      <label>16. What is the role of the hippocampus in memory?</label>
+      <textarea placeholder="Your answer…"></textarea>
+      <div class="answer">
+        Answer: Encoding long‑term episodic memories across cortex.
+      </div>
+    </div>
+
+    <div class="question">
+      <label>17. Name two skills that short‑term memory correlates with.</label>
+      <textarea placeholder="Your answer…"></textarea>
+      <div class="answer">
+        Answer: Reading comprehension; vocabulary learning (among others: spelling, note‑taking, reasoning).
+      </div>
+    </div>
+
+    <div class="question">
+      <label>18. Difference between episodic &amp; semantic memory? Brain regions?</label>
+      <textarea placeholder="Your answer…"></textarea>
+      <div class="answer">
+        Answer: Episodic = personal events (hippocampus); semantic = world knowledge (distributed cortex).
+      </div>
+    </div>
+
+    <div class="question">
+      <label>19. What is Wernicke‑Korsakoff syndrome? Cause &amp; region?</label>
+      <textarea placeholder="Your answer…"></textarea>
+      <div class="answer">
+        Answer: Thiamine deficiency–induced amnesia/confabulation/ataxia; affects mammillary bodies.
+      </div>
+    </div>
+
+    <div class="question">
+      <label>20. What is the Papez circuit? Name two regions.</label>
+      <textarea placeholder="Your answer…"></textarea>
+      <div class="answer">
+        Answer: Memory consolidation loop: hippocampus → mammillary bodies → anterior thalamus → cingulate gyrus (etc).
+      </div>
+    </div>
+
+    <!-- Language Disorders -->
+    <div class="question">
+      <label>21. Difference between language &amp; speech? Brain locations?</label>
+      <textarea placeholder="Your answer…"></textarea>
+      <div class="answer">
+        Answer: Language = symbolic communication (left cortex); speech = mechanical articulation (motor cortex).
+      </div>
+    </div>
+
+    <div class="question">
+      <label>22. Four types of aphasia: symptoms &amp; brain location?</label>
+      <textarea placeholder="Your answer…"></textarea>
+      <div class="answer">
+        Answer: Broca’s (nonfluent, intact comprehension; inferior frontal), Wernicke’s (fluent, poor comprehension; superior temporal), global (nonfluent &amp; poor comprehension; both), conduction (fluent &amp; comprehends but can’t repeat; arcuate fasciculus).
+      </div>
+    </div>
+
+    <div class="question">
+      <label>23. What role does the right hemisphere play in language?</label>
+      <textarea placeholder="Your answer…"></textarea>
+      <div class="answer">
+        Answer: Automatic speech, singing, simple sentences, nonverbal comprehension, prosody &amp; gist of discourse.
+      </div>
+    </div>
+
+    <div class="question">
+      <label>24. Speech therapy options for Broca’s aphasia recovery?</label>
+      <textarea placeholder="Your answer…"></textarea>
+      <div class="answer">
+        Answer: Visual aids, gestures, writing, repetition, melodic intonation therapy, drawing.
+      </div>
+    </div>
+
+    <div class="question">
+      <label>25. Define alexia, agraphia &amp; apraxia. Is impairment uniform?</label>
+      <textarea placeholder="Your answer…"></textarea>
+      <div class="answer">
+        Answer: Alexia = reading impairment; agraphia = writing impairment; apraxia = inability to pantomime on command; severity varies by individual.
+      </div>
+    </div>
+
+    <!-- Final Jeopardy -->
+    <div class="question">
+      <label>26. What memory types may be impaired in Parkinson’s?</label>
+      <textarea placeholder="Your answer…"></textarea>
+      <div class="answer">
+        Answer: Basal ganglia–dependent procedural memory (skills &amp; conditioning).
+      </div>
+    </div>
+
+    <button type="submit">Submit &amp; Show Answers</button>
+  </form>
+
+</body>
+</html>

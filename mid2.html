@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Psych 117 Midterm 2</title>
+<style>
+    body { font-family: Arial, sans-serif; max-width: 900px; margin: auto; padding: 20px; }
+    .question { margin-bottom: 20px; }
+    .correct { color: green; font-weight: bold; }
+    .incorrect { color: red; }
+    .explanation { font-style: italic; margin-top: 5px; }
+  </style>
+</head>
+<body>
+<h1>Psych 117 Midterm 2 Practice Quiz</h1>
+  <a href="index.html"> <p> <- BACK </p></a>
+
+<form id="quizForm">
+<div id="quiz-questions"></div>
+<button onclick="checkAnswers()" type="button">Submit</button>
+</form>
+<div id="results" style="margin-top: 30px;"></div>
+<script>
+const questions = [
+  ["A difference between vascular dementia and Alzheimer’s disease is:", ["Patients with vascular dementia have neurofibrillary tangles in their brain, whereas patients with Alzheimer’s disease have amyloid plaques.", "Vascular dementia is reversible, whereas Alzheimer’s disease is not.", "Vascular dementia leads to cortical atrophy of the temporal and parietal lobes, whereas Alzheimer’s disease leads to cortical atrophy of the frontal lobes.", "Vascular dementia results in a step-wise decline of cognitive function, whereas Alzheimer’s disease results in a gradual decline of cognitive function."], "3", "Alzheimer’s disease presents gradual decline; vascular dementia often declines step-wise."],
+  ["All of the following are reversible causes of dementia EXCEPT:", ["B12 deficiency", "Hypothyroidism", "Depression", "Manganese poisoning"], "3", "Manganese poisoning is not typically reversible."],
+  ["A patient in the early stages of Alzheimer’s disease would likely have trouble with all of the following tasks EXCEPT:", ["“Name this object” (pointing to your collar or watch)", "“Copy this geometric design on this piece of paper.”", "“Tell me about your high school graduation”", "“Please repeat the following five words and remember them for the next 15 minutes or so because I will test you on them again.”"], "2", "Remote autobiographical memories remain intact early in Alzheimer's."],
+  ["Which of the following is FALSE about Alzheimer's and frontotemporal dementia:", ["Gyri get thinner, and sulci widen", "The age of onset for frontotemporal dementia is generally earlier than Alzheimer's", "Frontotemporal dementia patients are more likely to exhibit poor judgment and insight", "Motor impairments are evident early in both diseases"], "3", "Motor impairments are not a hallmark of early FTD or Alzheimer's."],
+  ["In the early stages, Alzheimer’s patients will display cortical atrophy in:", ["Temporal and parietal lobes", "Basal ganglia", "Frontal lobes", "Thalamus"], "0", "These areas are most affected early in Alzheimer’s pathology."],
+  ["The following statements are true about Alzheimer’s disease EXCEPT:", ["It is the most common disorder causing dementia", "Alzheimer’s disease patients exhibit significant changes in their personality early in the course of their illness.", "Alzheimer’s disease patients have decreased acetylcholine in the brain", "The hallmarks of Alzheimer’s disease include amyloid plaques and neurofibrillary tangles in the brain"], "1", "Personality changes are more prominent in frontotemporal dementia."],
+  ["Which of the following is an approved treatment for Alzheimer’s disease:", ["A medication that increases dopamine in the brain", "A medication that increases acetylcholine in the brain", "A medication that increases tau protein in the brain", "A medication that increases amyloid protein in the brain"], "1", "Increasing acetylcholine helps temporarily mitigate cognitive symptoms."],
+  ["Which of the following statements is FALSE about PET amyloid imaging:", ["It helps make a diagnosis of Alzheimer’s disease.", "It may identify individuals who may develop Alzheimer’s disease.", "It cannot detect Pick’s bodies.", "It helps make the diagnosis of multi-infarct dementia"], "3", "PET amyloid imaging is not useful in vascular (multi-infarct) dementia."],
+  ["In Alzheimer’s disease, amyloid protein accumulates within neurons, whereas tau protein accumulates outside neurons:", ["True", "False"], "1", "Amyloid plaques form outside cells; tau tangles form inside."],
+  ["In frontotemporal dementia, the patient presents with a profound memory disturbance:", ["True", "False"], "1", "FTD primarily affects behavior and language, not early memory."],
+  ["Functional MRI has better spatial resolution than Positron Emission Tomography", ["True", "False"], "0", "fMRI has better spatial resolution, while PET has better molecular imaging capabilities."],
+  ["A young graduate student observes higher fMRI activity in the frontal lobe during a short-term memory task. What approach would provide the best evidence for the student’s claim?", ["Also measuring higher glucose uptake with PET in the frontal lobes during a short-term memory task", "Studying patients with frontal lobe lesions and demonstrating their short-term memory function is impaired", "Showing that damage to the parietal cortex does not affect short-term memory function", "Direct neural recordings from frontal lobe neurons that show increased neuronal activity is associated with short-term memory function"], "1", "Lesion studies can demonstrate causality about brain region necessity."],
+  ["A neuroscientist wants to show that a particular part of the brain is necessary for a cognitive task. Which method would provide the best data?", ["Functional MRI (fMRI)", "Magnetoencephalography (MEG)", "Evoked-related potentials (ERP)", "Transcranial magnetic stimulation (TMS)"], "3", "TMS can disrupt neural activity and test causal involvement of brain regions."],
+  ["What is meant by the term functional integration?", ["Cognitive operations can be an emergent property of interacting brain regions", "Certain brain areas are specialized for a specific cognitive process", "It is difficult to understand brain function without taking the environment into account", "The brain needs integrated input from the other parts of the body in order to function properly."], "0", "Functional integration describes cooperation between distributed brain areas."],
+  ["Functional MRI (fMRI) measures the ratio of:", ["Oxyhemoglobin/deoxyhemoglobin", "Serotonin/dopamine", "Glucose/oxygen", "Gamma rays/positrons"], "0", "fMRI detects blood oxygen level-dependent (BOLD) signals via hemoglobin."],
+  ["A team of neurologists is studying patients with short-term memory impairments. Which of the following is TRUE?", ["Neural activity measured by magnetoencephalography can precisely localize the brain region involved.", "The region with the most damage overlap is necessary for short-term memory.", "Neural activity measured by EEG can precisely localize the brain region involved.", "The region with most damage overlap is not involved in short-term memory."], "1", "Lesion overlap indicates regions essential to function."],
+  ["Physiological methods such as fMRI identify brain areas that are necessary for a cognitive function:", ["True", "False"], "1", "fMRI shows correlations, not necessity. Lesion/TMS are needed for causal claims."],
+  ["All of the following are advantages of using fMRI over PET EXCEPT:", ["fMRI is non-invasive, while PET requires radioactive tracers", "fMRI has higher temporal resolution", "fMRI can image ocular dominance columns", "Glucose metabolism is measured better with fMRI"], "3", "PET is superior for measuring metabolic processes like glucose usage."],
+  ["Understanding the “gist” of conversation requires:", ["Functional integration of activity in multiple language areas", "Activity within Broca’s area alone", "Activity within Wernicke’s area alone", "None of the above"], "0", "Language comprehension involves multiple interacting brain regions."],
+  ["Transcranial magnetic stimulation creates brain images by detecting magnetic fields from neurons:", ["True", "False"], "1", "TMS stimulates the brain using magnetic fields, not used to detect them."],
+  ["Aphasia is best described as:", ["A disturbance of language", "Loss of oxygen supply", "Inability to learn new motor skills", "Inattention towards the left side of space"], "0", "Aphasia involves impaired language production or comprehension."],
+  ["Broca and Wernicke discovered relationships between language and brain using:", ["Structural MRI", "EEG", "Examination of patients with brain lesions", "PET"], "2", "They studied postmortem brains of patients with known language deficits."],
+  ["A patient who says 'fwing' instead of 'swing' shows:", ["Retrograde amnesia", "Semantic paraphasia", "Apraxia", "Phonemic paraphasia"], "3", "A phonemic paraphasia is an error in sound production."],
+  ["Which is TRUE of both Broca’s and Wernicke’s aphasics?", ["They are both nonfluent", "Neither can comprehend language", "They both have problems with repetition", "They result from loss of dopamine"], "2", "Repetition deficits are common in both types of aphasia."],
+  ["A lesion to which artery can cause Broca’s aphasia?", ["Left posterior cerebral artery", "Left middle cerebral artery", "Left anterior cerebral artery", "None of the above"], "1", "The left MCA supplies Broca’s area in the inferior frontal gyrus."],
+  ["Conduction aphasia is caused by damage to:", ["Corpus callosum", "Superior longitudinal fasciculus", "Arcuate fasciculus", "Uncinate fasciculus"], "2", "Damage to the arcuate fasciculus disrupts connection between Broca and Wernicke areas."],
+  ["Dysarthria, or slurred speech, can be caused by damage to:", ["Primary motor cortex", "Parietal lobe", "Occipital lobe", "Temporal lobe"], "0", "Motor control of speech muscles originates in primary motor cortex."],
+  ["Broca’s aphasia is caused by damage to the ___ lobe, Wernicke’s to the ___ lobe:", ["Frontal/Temporal", "Frontal/Parietal", "Temporal/Frontal", "Parietal/Frontal"], "0", "Broca: frontal; Wernicke: posterior temporal."],
+  ["Melodic intonation therapy relies on the right hemisphere:", ["True", "False"], "0", "Right hemisphere helps compensate in language rehabilitation via prosody/melody."],
+  ["A patient with Broca’s aphasia may be able to sing and produce automatic speech:", ["True", "False"], "0", "These functions are often preserved due to right hemisphere or basal ganglia pathways."],
+  ["Which type of memory is most impaired after hippocampal damage?", ["Semantic", "Episodic", "Classical Conditioning", "Procedural"], "1", "The hippocampus is essential for episodic (autobiographical) memory."],
+  ["How is semantic memory organized in the brain?", ["Initially in lateral temporal lobe, then hippocampus", "Depends on basal ganglia-frontal connections", "Distributed across cerebral cortex", "None of the above"], "2", "Semantic memory is stored in distributed cortical networks."],
+  ["Which is TRUE about Wernicke-Korsakoff’s Syndrome?", ["Episodic memory is more impaired than short-term memory", "In chronic state, memory improves but motor deficits persist", "Caused by vitamin C deficiency", "Due to hippocampal damage"], "0", "It's linked to thiamine deficiency and affects episodic memory severely."],
+  ["Why are memories for living and non-living objects stored differently?", ["Living things are more complex perceptually", "Living things use older brain centers", "Living things are represented by physical features; non-living by use", "Non-living things are less interesting"], "2", "Semantic networks process living and non-living based on sensory vs functional features."],
+  ["How would a Parkinson’s patient perform on the Mirror Tracing Task?", ["No improvement and remember doing task", "No improvement and confabulate", "Improve but not remember test", "Improve and remember"], "0", "Procedural learning may be impaired in Parkinson’s but awareness remains."],
+  ["Which is NOT part of the Papez circuit?", ["Hippocampus", "Basal Ganglia", "Cingulate gyrus", "Thalamus"], "1", "The basal ganglia are not part of the Papez circuit."],
+  ["Papez circuit is most important for:", ["Episodic memory consolidation", "Short-term storage", "Motor learning", "Classical conditioning"], "0", "Papez circuit supports encoding of episodic memories."],
+  ["Which of the following statements about H.M. is TRUE?", ["H.M. shows impaired short and long-term memory", "Short-term was impaired but long-term intact", "Childhood memory impairment proves hippocampus stores memory", "None of the above"], "3", "H.M.'s case revealed hippocampus is critical for forming new memories, not storage."],
+  ["Short-term memory correlates with all of these EXCEPT:", ["Reasoning", "Academic achievement", "Learning new motor skills", "Reading comprehension"], "2", "Motor learning is procedural, not tied to short-term memory."],
+  ["Which disorder does NOT damage the hippocampus?", ["Alzheimer's", "Cerebral anoxia", "Parkinson’s", "Herpes encephalitis"], "2", "Parkinson’s typically affects the basal ganglia, not hippocampus."],
+];
+
+function loadQuiz() {
+  const container = document.getElementById("quiz-questions");
+  questions.forEach((q, index) => {
+    const div = document.createElement("div");
+    div.className = "question";
+    div.innerHTML = `<p><strong>Q${index + 1}. ${q[0]}</strong></p>` +
+      q[1].map((opt, i) => `<label><input type="radio" name="q${index}" value="${i}"> ${opt}</label><br>`).join("") +
+      `<p class="explanation" id="exp${index}"></p>`;
+    container.appendChild(div);
+  });
+}
+
+function checkAnswers() {
+  const form = document.forms["quizForm"];
+  let resultHTML = "<h2>Results:</h2>";
+  let score = 0;
+
+  questions.forEach((q, i) => {
+    const userAnswer = form[`q${i}`]?.value;
+    const explanationEl = document.getElementById(`exp${i}`);
+    if (userAnswer === q[2]) {
+      explanationEl.innerHTML = `<span class="correct">Correct ✅</span> — ${q[3]}`;
+      score++;
+    } else {
+      explanationEl.innerHTML = `<span class="incorrect">Incorrect ❌</span> — ${q[3]}`;
+    }
+  });
+
+  resultHTML += `<h3>You got ${score} out of ${questions.length} correct.</h3>`;
+  document.getElementById("results").innerHTML = resultHTML;
+}
+
+window.onload = loadQuiz;
+</script>
+</body>
+</html>

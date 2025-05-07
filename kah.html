@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Psych 117 Final Review Quiz</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+    .question { margin-bottom: 20px; }
+    .options label { display: block; margin-left: 20px; }
+    .correct { color: green; font-weight: bold; }
+    .incorrect { color: red; font-weight: bold; }
+    .result { font-size: 1.2em; margin-top: 20px; }
+    .breakdown { margin-top: 30px; }
+    .breakdown div { margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Psych 117 Final Review Quiz</h1>
+    <a href="index.html"> <p> <- BACK </p></a>
+
+  <form id="quizForm"></form>
+  <button onclick="submitQuiz()">Submit</button>
+  <div class="result" id="result"></div>
+  <div class="breakdown" id="breakdown"></div>
+
+  <script>
+    const questions = [
+  { q: "The central sulcus", options: ["separates the frontal lobe and temporal lobe", "separates the temporal lobe and parietal lobe", "separates the frontal lobe and parietal lobe", "separates the parietal lobe and occipital lobe"], answer: 2 },
+  { q: "Cerebrospinal fluid", options: ["Absorbs shock and provides buoyancy", "reduces brain weight by 2X times", "never gets replenished", "can be accessed via the spinal cord"], answer: 0 },
+  { q: "A stroke causing paralysis in the hand and face is most likely due to", options: ["Medial cerebral artery", "Anterior cerebral artery", "Posterior cerebral artery", "Medial and anterior cerebral artery"], answer: 0 },
+  { q: "Executive functioning", options: ["Localized in pre-frontal cortex", "Lowest level of cognition", "Modulated by serotonin", "Localized in parietal lobe"], answer: 0 },
+  { q: "Magnetic Resonance Imaging (MRI) and fMRI", options: ["detects magnetic fields in our body via iron in blood", "low spatial resolution", "gamma ray detector", "can only get structural scans"], answer: 0 },
+  { q: "Positron emission topography (PET)", options: ["Best option to locate area of focal seizures", "directly measures electrical activity", "can be used to measure amyloid and tau proteins in the brain", "Lesion method"], answer: 2 },
+  { q: "Subarachnoid hemorrhage", options: ["atherosclerotic plaque builds up in the arteries and narrows blood flow", "Artery ruptures and blood is outside of the brain", "Arteries penetrating into the brain rupture and blood gets inside of brain", "can be caused by drowning when theres no oxygen to the brain"], answer: 1 },
+  { q: "Diffuse axonal injury (DAI)", options: ["axons and small blood vessels get stretched and torn after acceleration", "occurs after ischemic stroke", "white matter tracts shows more volume for people with DAI", "occurs with direct impact to head"], answer: 0 },
+  { q: "Epidural hematoma", options: ["less threatening than subdural hematoma", "blood accumulates above the dura", "blood accumulates below the dura", "patient may show symptoms 2-4 weeks after incident"], answer: 1 },
+  { q: "Parkinson's Disorder", options: ["Is a hyperkinetic disorder", "Symptoms include resting tremor, cogwheel rigidity, and bradykinesia", "related to less Acetylcholine in the substantia nigra", "similar presentation to benign essential tremor"], answer: 1 },
+  { q: "Huntington's Disease", options: ["More common than Parkinson's", "No behavior changes", "Hypokinetic disorder", "Related to degeneration of caudate nucleus in basal ganglia"], answer: 3 },
+  { q: "Meningioma", options: ["aggressive and invasive type", "borders are easily demarcated, can be surgically removed", "symptoms remain after tumor removal", "cells from another organ deposit in brain and grow"], answer: 1 },
+  { q: "Generalized tonic-clonic seizure", options: ["Least common type of epilepsy", "Seizure in a localized area of the brain", "Expresses itself differently depending on where the seizure is", "Comes on suddenly without warning"], answer: 3 },
+  { q: "Dementia", options: ["impairment of intellectual function in at least 2 cognitive domains", "Most common cause is Frontotemporal dementia", "impairment of intellectual function in all cognitive domains", "dementia can never be reversed"], answer: 0 },
+  { q: "Alzheimer's Disease", options: ["Significant early changes in personality", "Most common cause of dementia", "pathology is Pick's bodies", "Significant sensory and motor deficits"], answer: 1 },
+  { q: "Treatment of Alzheimer's Disease", options: ["drugs that increase dopamine in the brain", "drugs that increase the protein beta-amyloid in the brain", "drugs that decrease acetylcholine in the brain", "drugs that increase acetylcholine in the brain"], answer: 3 },
+  { q: "Lesion methods", options: ["determine if a brain region is involved in a cognitive function", "determine if a brain region is necessary for a cognitive function", "single unit recording is a lesion method", "All lesion methods are irreversible"], answer: 1 },
+  { q: "Broca's aphasia", options: ["Caused by damage to superior temporal gyrus", "patients are nonfluent but can comprehend", "Caused by damage to arcuate fasciculus", "patients cannot comprehend but are fluent"], answer: 1 },
+  { q: "Role of the right hemisphere in language", options: ["ability to produce automatic speech and sing", "ability to comprehend complex sentences", "ability to speak fluently", "ability to repeat sentences"], answer: 0 },
+  { q: "Short-term memory", options: ["H.M. had issue with this", "has the same neural system as long-term memory", "Localized in pre-frontal cortex", "Depends on hippocampus functioning"], answer: 3 },
+  { q: "According to Dr. Taylor, which hemisphere 'thinks in pictures' and processes the present moment?", options: ["Left hemisphere", "Frontal lobe", "Right hemisphere", "Temporal lobe"], answer: 2 },
+  { q: "What white-matter structure carries information between the two cerebral hemispheres?", options: ["Thalamus", "Corpus callosum", "Fornix", "Amygdala"], answer: 1 },
+  { q: "Damage to the right parietal lobe most often produces which deficit?", options: ["Neglect of the right side of space", "Contralateral hemianopia", "Neglect of the left side of space", "Broca’s aphasia"], answer: 2 },
+  { q: "Which type of memory is the right hippocampus especially important for?", options: ["Verbal memory", "Procedural memory", "Spatial memory", "Emotional memory"], answer: 2 },
+  { q: "A unilateral lesion of the left primary motor cortex would most likely impair movement on the:", options: ["Left side of the body", "Right side of the body", "Trunk only", "Both sides equally"], answer: 1 },
+  { q: "Which of these is the main local inhibitory neurotransmitter?", options: ["Dopamine", "Serotonin", "Acetylcholine", "GABA"], answer: 3 },
+  { q: "Neurons in the locus coeruleus synthesize and release which neurotransmitter?", options: ["Serotonin", "Dopamine", "Acetylcholine", "Norepinephrine"], answer: 3 },
+  { q: "The principal excitatory transmitter in cortical circuits is:", options: ["Glutamate", "GABA", "Dopamine", "Histamine"], answer: 0 },
+  { q: "Which pairing of brain region and modulatory transmitter is correct?", options: ["Substantia nigra → acetylcholine", "Nucleus basalis → dopamine", "Locus coeruleus → serotonin", "Substantia nigra → dopamine"], answer: 3 },
+  { q: "Projection (modulatory) transmitters differ from local ones chiefly because they:", options: ["Only bind ionotropic receptors", "Diffuse widely to influence large brain areas", "Are exclusively inhibitory", "Are synthesized in dendrites"], answer: 1 },
+  { q: "Which hemisphere is considered a 'parallel processor' focused on the present moment?", options: ["Left", "Right", "Both equally", "Neither"], answer: 1 },
+  { q: "Which type of donor cells did the professor mention as accumulating near injury sites and potentially aiding repair?", options: ["Fetal cells", "Microglia", "Astrocytes", "Oligodendrocytes"], answer: 0 },
+  { q: "In the immediate aftermath of her stroke, the speaker reported a feeling of:", options: ["Deep despair", "Euphoria", "Complete numbness", "Auditory hallucinations"], answer: 1 },
+  { q: "Long-term recovery after stroke depends mostly on:", options: ["Axonal regeneration in the CNS", "Neurogenesis in adult cortex", "Reorganization of undamaged neural circuits", "Immediate reconnection of the original pathways"], answer: 2 },
+  { q: "What is the primary function of a neuron?", options: ["Store genetic information", "Support blood flow", "Transmit electrical and chemical signals", "Produce cerebrospinal fluid"], answer: 2 },
+  { q: "Which part of a neuron receives incoming signals?", options: ["Axon", "Dendrites", "Myelin sheath", "Synaptic cleft"], answer: 1 },
+  { q: "Which structure carries an action potential away from the neuron's cell body?", options: ["Dendrite", "Axon", "Nucleus", "Soma"], answer: 1 },
+  { q: "What brain region is essential for balance and coordination?", options: ["Hippocampus", "Thalamus", "Cerebellum", "Basal ganglia"], answer: 2 },
+  { q: "What name is given to the three protective membranes surrounding the brain and spinal cord?", options: ["Neurolemma", "Meninges", "Endoneurium", "Periosteum"], answer: 1 },
+  { q: "Jim, nine months after his stroke, speaks in a slurred, effortful way due to weakened articulatory muscles. This is called:", options: ["Broca’s aphasia", "Dysarthria", "Wernicke’s aphasia", "Conduction aphasia"], answer: 1 },
+  { q: "When a patient says 'scoon' instead of 'spoon,' substituting one sound for another, that error is known as:", options: ["Semantic paraphasia", "Neologism", "Phonemic paraphasia", "Hypophonia"], answer: 2 },
+  { q: "Damage localized to Brodmann areas 44 and 45 (inferior frontal gyrus) produces:", options: ["Fluent speech with poor comprehension", "Fluent speech with intact repetition", "Non-fluent speech with preserved comprehension", "Intact fluency but inability to repeat"], answer: 2 },
+  { q: "A patient with intact fluency and comprehension but who cannot repeat even simple sentences most likely has:", options: ["Broca’s aphasia", "Wernicke’s aphasia", "Conduction aphasia", "Global aphasia"], answer: 2 },
+  { q: "What is the name of the white matter bundle that connects the hippocampus to the mammillary bodies?", options: ["Arcuate fasciculus", "Fornix", "Corpus callosum", "Uncinate fasciculus"], answer: 1 },
+  { q: "Confabulation, commonly seen in Korsakoff psychosis, refers to:", options: ["An inability to form new memories", "Walking unsteadily due to cerebellar damage", "Fabrication of false memories", "Difficulty understanding language"], answer: 2 },
+  { q: "Wernicke–Korsakoff syndrome is primarily caused by a severe deficiency of which vitamin?", options: ["Vitamin C", "Vitamin D", "Vitamin B₁", "Vitamin B₃"], answer: 2 },
+  { q: "Damage to the mammillary bodies in the hippocampal circuit most directly results in:", options: ["Impaired short-term working memory", "Loss of procedural motor skills", "Anterograde amnesia for episodic memories", "Visual agnosia"], answer: 2 },
+  { q: "Which of the following is NOT a component of the hippocampal long-term memory circuit?", options: ["Anterior thalamus", "Cingulate gyrus", "Mammillary bodies", "Amygdala"], answer: 3 },
+  { q: "Priming effects in memory testing, such as recognizing 'assassin' after exposure to related words, reflect preserved:", options: ["Episodic memory", "Semantic memory", "Implicit (procedural) memory", "Working memory"], answer: 2 },
+  { q: "Functional MRI infers neural activity by detecting changes in blood ____?", options: ["Volume", "Density", "Oxygenation", "Glucose concentration"], answer: 2 },
+  { q: "The spatial resolution of fMRI is on the order of:", options: ["Nanometers", "Micrometers", "Millimeters", "Centimeters"], answer: 2 },
+  { q: "Which has better spatial resolution?", options: ["PET", "fMRI", "MEG", "EEG"], answer: 1 },
+  { q: "The concept that cognitive functions arise from the coordinated activity of multiple specialized regions is called:", options: ["Functional specialization", "Functional segregation", "Functional connectivity", "Functional integration"], answer: 3 },
+  { q: "Despite preserved IQ scores, patients with frontal lobe lesions most prominently show deficits in which domain?", options: ["Semantic memory", "Procedural learning", "Executive function", "Basic sensory perception"], answer: 2 },
+  { q: "The Wisconsin Card Sorting Test is primarily used to assess a patient's ability to:", options: ["Inhibit automatic responses", "Plan multi-step tasks", "Shift between different sorting rules (set-shifting)", "Maintain steady attention over time"], answer: 2 },
+  { q: "Perseveration, a common sign of frontal damage, refers to the tendency to:", options: ["Repeat the same response or action despite changing demands", "Forget newly presented information", "Fail to plan ahead", "Lose the ability to recognize familiar objects"], answer: 0 },
+  { q: "In the Stroop task, patients must say the ink color of words rather than reading the word itself. A failure to do so is due to:", options: ["An inability to inhibit the automatic response of reading the word", "Difficulty recognizing colors", "Poor working memory", "Impaired visuomotor coordination"], answer: 0 },
+  { q: "Which memory type—crucial for holding and manipulating information over seconds—is impaired after frontal lobe injury?", options: ["Episodic memory", "Semantic memory", "Working (short-term) memory", "Procedural memory"], answer: 2 },
+  { q: "Drugs like donepezil used in Alzheimer's disease boost which neurotransmitter by inhibiting its degrading enzyme?", options: ["Dopamine", "Acetylcholine", "Serotonin", "Norepinephrine"], answer: 1 },
+  { q: "Which dopaminergic pathway, originating in the ventral tegmental area, modulates frontal-cortex working memory?", options: ["Nigrostriatal", "Mesolimbic", "Mesocortical", "Tuberoinfundibular"], answer: 2 },
+  { q: "Dopamine depletion in monkeys caused impairments similar to...", options: ["Hippocampal lesions", "Frontal lobe lesions", "Parietal cortex lesions", "Amygdala lesions"], answer: 1 },
+  { q: "What did the PET study of Berkeley students show?", options: ["All students had equal neurotransmitters levels", "Dopamine levels correlated with working memory capacity", "Serotonin levels correlated with working memory capacity", "Dopamine levels were higher in those with low memory span"], answer: 1 },
+  { q: "What happened when high-span students were given dopamine?", options: ["Their working memory improved", "Their memory remained unchanged", "Their performance decreased", "They became hyperactive"], answer: 2 }
+];
+
+    const form = document.getElementById("quizForm");
+    questions.forEach((item, i) => {
+      const div = document.createElement("div");
+      div.className = "question";
+      div.innerHTML = `<p><strong>Q${i + 1}:</strong> ${item.q}</p>`;
+      item.options.forEach((opt, j) => {
+        div.innerHTML += `<div class="options"><label><input type="radio" name="q${i}" value="${j}"> ${opt}</label></div>`;
+      });
+      form.appendChild(div);
+    });
+
+    function submitQuiz() {
+      let score = 0;
+      const total = questions.length;
+      const breakdown = document.getElementById("breakdown");
+      breakdown.innerHTML = "<h2>Answer Breakdown:</h2>";
+
+      questions.forEach((item, i) => {
+        const radios = document.getElementsByName(`q${i}`);
+        let selected = -1;
+        for (const radio of radios) {
+          if (radio.checked) selected = parseInt(radio.value);
+        }
+
+        const qDiv = radios[0].closest(".question");
+        const labels = qDiv.querySelectorAll("label");
+        labels.forEach((label, index) => {
+          label.classList.remove("correct", "incorrect");
+          if (index === item.answer) label.classList.add("correct");
+          else if (index === selected) label.classList.add("incorrect");
+        });
+
+        const correctness = selected === item.answer ? "✅ Correct" : `❌ Incorrect (Correct: ${item.options[item.answer]})`;
+        const qBreakdown = document.createElement("div");
+        qBreakdown.textContent = `Q${i + 1}: ${correctness}`;
+        breakdown.appendChild(qBreakdown);
+
+        if (selected === item.answer) score++;
+      });
+
+      document.getElementById("result").innerText = `You scored ${score} out of ${total}.`;
+    }
+  </script>
+</body>
+</html>

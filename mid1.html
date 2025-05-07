@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Psych 117 Midterm 1</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 900px; margin: auto; padding: 20px; }
+    .question { margin-bottom: 20px; }
+    .correct { color: green; font-weight: bold; }
+    .incorrect { color: red; }
+    .explanation { font-style: italic; margin-top: 5px; }
+  </style>
+</head>
+<body>
+
+<h1>Psych 117 Midterm 1 Practice Quiz</h1>
+  <a href="index.html"> <p> <- BACK </p></a>
+
+<form id="quizForm">
+  <div id="quiz-questions"></div>
+  <button type="button" onclick="checkAnswers()">Submit</button>
+</form>
+
+<div id="results" style="margin-top: 30px;"></div>
+
+<script>
+const questions = [
+  // Existing 20 questions above
+
+  ["Which of the following are symptoms that can be caused by a simple partial seizure?", ["bad odor smell", "twitching of a hand muscle", "hearing music", "tingling sensation in the hand"], "0", "Simple partial seizures can include sensory symptoms like smells, but 'bad odor smell' is not a typical presentation."],
+  ["All of the following clinical conditions can cause a seizure EXCEPT:", ["meningitis", "brain tumor", "hypoglycemia", "parkinson's disease"], "3", "Parkinson's disease does not typically cause seizures, whereas the others can."],
+  ["Which of the following is NOT a treatment of epilepsy:", ["medications that decrease neuronal membrane excitability", "medications that reduce the production of cerebrospinal fluid", "deep brain stimulation", "surgical removal or ablation of brain tissue"], "1", "Medications that reduce cerebrospinal fluid are not used to treat epilepsy."],
+  ["An absence (petit mal) seizure:", ["is commonly preceded by a flash of light", "involves a loss of consciousness for several days", "can be mistaken for 'zoning out' or 'daydreaming'", "only occurs in adults"], "2", "Absence seizures often look like brief staring spells and are mistaken for daydreaming."],
+  ["A complex partial seizure refers to:", ["a seizure that arises in a primary brain region (e.g., primary motor or visual cortex)", "a seizure that has a clonic phase, tonic phase, and post-ictal phase", "a seizure that arises in a primary brain region but spreads to a higher level brain region (e.g. multimodal association cortex)", "a seizure that arises from a higher-level brain region (e.g., multimodal association cortex)."], "3", "Complex partial seizures typically start in higher-order association areas and can impair consciousness."],
+  ["What is the most common location of brain tumors in children?", ["Cerebral hemispheres", "Brain stem and cerebellum", "Thalamus", "Basal ganglia"], "1", "Most pediatric tumors arise in the posterior fossa, affecting the brain stem and cerebellum."],
+  ["A patient with a meningioma typically has:", ["A good prognosis because the tumor edges are easily demarcated, which allow for complete surgical removal of the tumor", "A poor prognosis because the rate of tumor cell division is extremely rapid", "A poor prognosis because the tumor will metastasize to other organs", "A good prognosis because radiation treatment alone will eliminate the tumor"], "0", "Meningiomas are generally benign and surgically resectable."],
+  ["Which statement is FALSE regarding gliomas?", ["They do not have clearly defined edges", "They are difficult to remove surgically", "They can cause seizures", "They are usually benign tumors"], "3", "Most gliomas are malignant; calling them 'usually benign' is incorrect."],
+  ["TRUE OR FALSE: Patients with Parkinson's disease are more troubled by their bradykinesia than by their resting tremor.", ["True", "False"], "0", "Bradykinesia often impairs movement more than tremor, making it more distressing for patients."],
+  ["Which of the following is NOT a treatment for Parkinson’s disease?", ["Pallidotomy", "L-Dopa", "Magnesium supplements", "Deep brain stimulation"], "2", "Magnesium is not a standard treatment for Parkinson’s disease."],
+  ["Which of the following is NOT a primary symptom of Parkinson's disease?", ["Cogwheel rigidity", "Resting Tremor", "Dementia early in the course of the illness", "Decreased facial expressions"], "2", "Dementia may occur later in Parkinson's but is not an early or primary symptom."],
+  ["Which of the following statements is FALSE?", ["A genetic mutation on chromosome 4 leads to Huntington’s disease.", "Treatment with L-dopa can eliminate the behavioral symptoms associated with Huntington’s disease.", "Depression and mood swings are symptoms of Huntington’s disease.", "Patients with Huntington’s disease exhibit chorea and athetosis."], "1", "L-dopa is used for Parkinson’s, not Huntington’s disease."],
+  ["Which of the following statements is TRUE?", ["Cerebellar damage causes uncoordinated movements", "Basal ganglia damage causes a decrease in muscle strength", "Cerebellum damage causes a shuffling gait", "Thalamus damage causes resting tremor"], "0", "Cerebellar dysfunction leads to ataxia and incoordination."],
+  ["All of the following can cause symptoms that resemble Parkinson’s disease, EXCEPT:", ["Mercury poisoning", "Multiple strokes", "Drugs such as neuroleptics", "A career in boxing with multiple blows to the head"], "3", "Boxing causes traumatic brain injury but doesn't mimic Parkinsonism like the other conditions."],
+  ["Patients with Huntington’s disease have more severe cognitive deficits than patients with Parkinson’s disease", ["Parkinson's disease is less common than Huntington's disease", "Huntington's disease has hypokinetic symptoms", "Patients with Huntington’s disease have more severe cognitive deficits than patients with Parkinson’s disease", "Huntington's disease has autosomal recessive inheritance"], "2", "Huntington’s involves profound early cognitive decline; Parkinson’s cognitive symptoms appear later."],
+  ["Parkinson’s disease involves the loss of neurons in the _______  that produce  __________.", ["amygdala, acetylcholine", "substantia nigra, dopamine", "hippocampus, acetylcholine", "globus pallidus, dopamine"], "1", "Loss of dopaminergic neurons in the substantia nigra is a hallmark of Parkinson’s disease."],
+  ["Which of the following statements about epidural hematomas is FALSE?", ["A skull fracture often causes an epidural hematoma", "Epidural hematomas consist of primarily venous blood", "Epidural hematomas can develop within hours following a head injury", "Epidural hematomas are usually more life-threatening than subdural hematomas"], "1", "Epidural hematomas are usually arterial, not venous."],
+  ["Which is TRUE regarding diffuse axonal injury?", ["The symptoms of diffuse axonal injury always resolve within a week", "Diffuse axonal injury will not occur if you wear a helmet", "Diffuse axonal injury can occur without direct impact to the head", "Axonal compression is worse than axonal shearing"], "2", "Acceleration-deceleration forces can cause diffuse axonal injury even without impact."],
+  ["Clinical symptoms following a mild traumatic brain injury (TBI) will commonly include all of the following EXCEPT:", ["cognitive deficits", "light and sound hypersensitivity", "limb paralysis", "dizziness"], "2", "Limb paralysis is more consistent with severe injury or stroke."],
+  ["You are presented with a CT scan of the brain showing an abnormal bright spot beneath the dura layer of the meninges. You suspect:", ["a subdural hematoma due to the rupture of an artery", "an epidural hematoma due to the rupture of an artery", "a subdural hematoma due to the rupture of a vein", "an epidural hematoma due to the rupture of a vein"], "2", "Subdural hematomas are typically due to venous rupture."],
+,
+  ["Which brain regions are most vulnerable to damage after traumatic brain injury caused by impact against the irregular bony ridges of the skull?", ["brainstem/ primary motor cortex", "primary motor cortex / inferior frontal lobe", "inferior frontal lobe / anterior temporal lobe", "anterior temporal lobe/ brainstem"], "2", "The inferior frontal and anterior temporal lobes lie close to the skull base and are especially vulnerable to injury."],
+  ["A carotid endarterectomy is performed to decrease the risk of developing a:", ["Brain tumor", "Subarachnoid hemorrhage", "Ischemic stroke", "Subdural hematoma"], "2", "This procedure removes plaque from the carotid artery to prevent ischemic strokes."],
+  ["Which of the following statements about transient ischemic attacks (TIAs) is FALSE?", ["They cause permanent damage to the brain", "They can be considered a 'warning sign' of a stroke", "They cause stroke-like symptoms that last less than 24 hours", "They can be caused by decreased blood flow in any cerebral artery"], "0", "TIAs do not cause permanent damage but serve as warnings for future strokes."],
+  ["Which of the following is NOT a risk factor for stroke?", ["smoking", "Parkinson's disease", "diabetes", "high blood pressure"], "1", "Parkinson's disease is not typically associated with increased stroke risk."],
+  ["What is the most common type of stroke?", ["arteriovenous malformation", "hemorrhagic", "aneurysm", "ischemic"], "3", "Ischemic strokes account for the vast majority of all strokes."],
+  ["A patient presents with aphasia and weakness in the right face and arm. Which vascular territory is the stroke likely to be in?", ["left middle cerebral artery", "left posterior cerebral artery", "left anterior cerebral artery", "right middle cerebral artery"], "0", "The left MCA supplies Broca's area and motor cortex for the face and arm on the right side."],
+  ["A patient has suffered a stroke, and you suspect a significant blockage in one of the arteries supplying blood to their brain. Which test would be the best to confirm your suspicion?", ["Pneumoencephalogram", "PET (positron emission tomography)", "EEG (electroencephalography)", "Cerebral angiography"], "3", "Cerebral angiography visualizes blood vessels and can detect blockages directly."],
+  ["TRUE OR FALSE: Electrocorticography (ECoG) is more effective than electroencephalography (EEG) in identifying the spatial location of neural activity.", ["True", "False"], "0", "ECoG is more spatially precise because electrodes are placed directly on the brain surface."],
+  ["All of the following statements about PET scanning are FALSE, EXCEPT:", ["It measures the spinning of protons within brain tissue", "It can detect Alzheimer’s disease during its early stages.", "It is widely available at all small local hospitals throughout the country", "It creates a picture of the brain by collecting many X-ray images."], "1", "PET can detect metabolic changes associated with Alzheimer’s before structural changes are evident."],
+  ["Lumbar puncture involves:", ["Inserting a needle directly into the spinal cord", "Testing the blood that supplies the brain", "Directly stimulating spinal nerves", "Removing cerebrospinal fluid for diagnostic testing"], "3", "CSF is extracted from the subarachnoid space to test for infections and other conditions."],
+  ["Which of the following statements is TRUE?", ["Lumbar puncture is used to assess blood flow to the brain", "EEG directly measures neuronal activity in the brain", "PET directly measures neuronal activity in the brain", "CAT scans have higher spatial resolution than MRI scans"], "1", "EEG records the brain's electrical activity in real time."],
+  ["Which neurological disorder might only be identified with functional brain imaging but NOT with structural (anatomical) brain imaging?", ["Alzheimer’s disease", "Ischemic infarct", "Cerebral hemorrhage", "Brain tumor"], "0", "Early Alzheimer’s may appear normal on MRI or CT but show abnormalities on PET scans."],
+  ["Which statement about neuropsychological testing is FALSE?", ["It is an extension of the mental status examination", "Neuropsychological testing usually takes less than an hour", "Neuropsychological tests are validated and normalized to individuals of all ages and education.", "Neuropsychological testing can identify psychiatric disturbances and personality disorders."], "1", "Neuropsychological evaluations typically take several hours."],
+  ["Which cognitive ability should be assessed first during the mental status examination?", ["Memory", "Language", "Attention", "Visuospatial"], "2", "Attention must be intact to properly assess all other cognitive domains."],
+  ["What should a neurologist do first when evaluating a patient with a neurological disorder?", ["Test their memory abilities first", "Obtain a medical history of the patient", "Determine how many years of school they attended", "Perform a CAT (computer-assisted tomography) and/or MRI (magnetic resonance imaging) scan of the brain"], "1", "Medical history is essential before any diagnostic tests are chosen."],
+  ["TRUE OR FALSE: The cerebrospinal fluid in the brain is replenished multiple times throughout the day.", ["True", "False"], "0", "CSF is continuously produced and reabsorbed several times per day."],
+  ["TRUE OR FALSE: The thalamus functions as a relay station, transmitting information from the cerebral cortex directly to sensory neurons in the eyes and ears.", ["True", "False"], "1", "The thalamus relays information to the cortex, not from it to sensory neurons."],
+  ["In relation to its weight, the human brain consumes what percentage of the body's oxygen and glucose?", ["roughly the same as other organs", "more than other organs", "less than other organs", "more or less than other organs, depending on what the person is doing"], "1", "The brain uses about 20% of the body’s oxygen and glucose—more than any other organ."],
+  ["The representations of the _____ and the ______ take up the largest portion of the motor cortex.", ["Leg & Trunk", "Face & Trunk", "Hand & Face", "Face & Foot"], "2", "Fine motor control of the hands and face require more cortical space."],
+  ["The _____ separates the frontal and temporal lobes, and the _____ separates the frontal and parietal lobes.", ["longitudinal fissure / calcarine sulcus", "calcarine sulcus / longitudinal fissure", "central sulcus / sylvian fissure", "sylvian fissure / central sulcus"], "3", "The sylvian fissure separates the frontal and temporal lobes; the central sulcus separates frontal and parietal lobes."]
+];
+
+function loadQuiz() {
+  const container = document.getElementById("quiz-questions");
+  questions.forEach((q, index) => {
+    const div = document.createElement("div");
+    div.className = "question";
+    div.innerHTML = `<p><strong>Q${index + 1}. ${q[0]}</strong></p>` +
+      q[1].map((opt, i) => `<label><input type="radio" name="q${index}" value="${i}"> ${opt}</label><br>`).join("") +
+      `<p class="explanation" id="exp${index}"></p>`;
+    container.appendChild(div);
+  });
+}
+
+function checkAnswers() {
+  const form = document.forms["quizForm"];
+  let resultHTML = "<h2>Results:</h2>";
+  let score = 0;
+
+  questions.forEach((q, i) => {
+    const userAnswer = form[`q${i}`]?.value;
+    const explanationEl = document.getElementById(`exp${i}`);
+    if (userAnswer === q[2]) {
+      explanationEl.innerHTML = `<span class="correct">Correct ✅</span> — ${q[3]}`;
+      score++;
+    } else {
+      explanationEl.innerHTML = `<span class="incorrect">Incorrect ❌</span> — ${q[3]}`;
+    }
+  });
+
+  resultHTML += `<h3>You got ${score} out of ${questions.length} correct.</h3>`;
+  document.getElementById("results").innerHTML = resultHTML;
+}
+
+window.onload = loadQuiz;
+</script>
+</body>
+</html>

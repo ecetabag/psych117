@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Psych 117 Mock Final</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .question { margin-bottom: 20px; }
+    .question p { font-weight: bold; }
+    .options label { display: block; margin-left: 20px; }
+    .correct { color: green; }
+    .incorrect { color: red; }
+    .result { font-size: 1.2em; margin-top: 20px; font-weight: bold; }
+    .breakdown { margin-top: 30px; }
+  </style>
+</head>
+<body>
+  <h1>Psych 117 Mock 1</h1>
+    <a href="index.html"> <p> <- BACK </p></a>
+  <form id="quizForm"></form>
+  <button type="button" onclick="submitQuiz()">Submit</button>
+  <div class="result" id="result"></div>
+  <div class="breakdown" id="breakdown"></div>
+
+  <script>
+    const questions = [
+  { q: "Which type of memory is most associated with the Papez circuit?", options: ["Procedural", "Episodic", "Semantic", "Short-term"], answer: 1 },
+  { q: "Which of the following is part of the Papez circuit?", options: ["Basal ganglia", "Substantia nigra", "Cingulate gyrus", "Putamen"], answer: 2 },
+  { q: "H.M. demonstrated a dissociation between:", options: ["Language and praxis", "Working and procedural memory", "Short-term and long-term memory", "Memory and motor learning"], answer: 2 },
+  { q: "A Korsakoff patient is most likely to:", options: ["Retain working memory but confabulate past experiences", "Lose procedural memory", "Improve memory with L-Dopa", "Perform normally on delayed recall tests"], answer: 0 },
+  { q: "Procedural memory depends most on the:", options: ["Hippocampus", "Basal ganglia", "Amygdala", "Thalamus"], answer: 1 },
+  { q: "Mirror tracing is a classic task used to test:", options: ["Working memory", "Procedural learning", "Episodic memory", "Semantic association"], answer: 1 },
+  { q: "The main memory deficit in H.M. was:", options: ["Retrograde amnesia", "Semantic aphasia", "Anterograde amnesia", "Apraxia"], answer: 2 },
+  { q: "The hippocampus is not necessary for:", options: ["Learning a route", "Procedural skills", "Recalling personal experiences", "Spatial navigation"], answer: 1 },
+  { q: "What distinguishes Wernicke–Korsakoff syndrome from Alzheimer's?", options: ["It affects acetylcholine pathways", "It begins with language loss", "It’s caused by thiamine deficiency", "It has no memory impairment"], answer: 2 },
+  { q: "Which brain region is most affected by herpes simplex encephalitis?", options: ["Parietal lobe", "Occipital lobe", "Temporal lobe", "Cerebellum"], answer: 2 },
+  { q: "Which memory is often preserved in amnesic patients?", options: ["Semantic memory", "Procedural memory", "Episodic memory", "Spatial memory"], answer: 1 },
+  { q: "Confabulation is most associated with damage to which structure?", options: ["Occipital cortex", "Mammillary bodies", "Substantia nigra", "Primary auditory cortex"], answer: 1 },
+  { q: "A person with frontal lobe damage is most likely to:", options: ["Fail Stroop task", "Have Wernicke’s aphasia", "Lose procedural memory", "Lose vision"], answer: 0 },
+  { q: "Perseveration is best tested with which task?", options: ["Verbal fluency", "Wisconsin Card Sorting Test", "Serial subtraction", "Delayed recall"], answer: 1 },
+  { q: "Frontal lobe patients have greatest difficulty with:", options: ["Procedural memory", "Episodic memory", "Executive function", "Spatial navigation"], answer: 2 },
+  { q: "What aspect of memory is impaired in patients with hippocampal lesions?", options: ["Working memory", "Motor learning", "Episodic memory", "Priming"], answer: 2 },
+  { q: "The Papez circuit includes all of the following EXCEPT:", options: ["Fornix", "Cingulate gyrus", "Hippocampus", "Basal ganglia"], answer: 3 },
+  { q: "Short-term memory performance is most dependent on:", options: ["Frontal cortex", "Basal ganglia", "Cerebellum", "Temporal pole"], answer: 0 },
+  { q: "Split-brain patients struggle most with:", options: ["Recognizing emotions", "Naming objects in left visual field", "Drawing with right hand", "Detecting loud noises"], answer: 1 },
+  { q: "Which neurotransmitter is most depleted in Alzheimer’s?", options: ["Dopamine", "Acetylcholine", "GABA", "Serotonin"], answer: 1 },
+  { q: "Amyloid plaques are found:", options: ["Inside neurons", "Between neurons", "In spinal cord", "Only in the brainstem"], answer: 1 },
+  { q: "Damage to the right parietal lobe often causes:", options: ["Global aphasia", "Visual neglect", "Coma", "Visual agnosia"], answer: 1 },
+  { q: "Which structure is part of the dorsal stream?", options: ["Fusiform gyrus", "Inferior temporal cortex", "Posterior parietal cortex", "Lateral occipital complex"], answer: 2 },
+  { q: "Visual agnosia impairs:", options: ["Object recognition", "Motion detection", "Color discrimination", "Tactile localization"], answer: 0 },
+  { q: "Which method shows necessity of a brain region?", options: ["fMRI", "PET", "TMS", "ERP"], answer: 2 },
+  { q: "Functional integration refers to:", options: ["Specialization of function", "Localization", "Network collaboration", "Genetic contribution"], answer: 2 },
+  { q: "Executive functions are typically tested by:", options: ["Luria 3-step test", "Clock drawing", "Stroop task", "All of the above"], answer: 3 },
+  { q: "A common cause of transient global amnesia is:", options: ["Stroke", "Basilar migraine", "Epilepsy", "Emotional stress"], answer: 3 },
+  { q: "Semantic dementia mostly affects the:", options: ["Frontal lobe", "Medial temporal lobe", "Lateral temporal cortex", "Occipital pole"], answer: 2 },
+  { q: "Repetition deficits occur in:", options: ["Wernicke’s aphasia", "Broca’s aphasia", "Conduction aphasia", "Global aphasia"], answer: 2 },
+  { q: "The Stroop task is difficult because it:", options: ["Requires naming pictures", "Inhibits automatic reading", "Stimulates language production", "Involves memory recall"], answer: 1 },
+  { q: "Which method has the best spatial resolution?", options: ["PET", "EEG", "MEG", "fMRI"], answer: 3 },
+  { q: "Which neurotransmitter is increased with donepezil?", options: ["Serotonin", "GABA", "Acetylcholine", "Dopamine"], answer: 2 },
+  { q: "Episodic memory loss is most characteristic of:", options: ["Parkinson’s disease", "Frontal lobe injury", "Alzheimer’s disease", "Huntington’s disease"], answer: 2 },
+  { q: "Korsakoff syndrome is due to:", options: ["Herpes infection", "Vitamin B1 deficiency", "Tau protein buildup", "Ischemic stroke"], answer: 1 },
+{ q: "A subdural hematoma results from:", options: ["Arterial rupture above the dura", "Venous rupture below the dura", "Aneurysm rupture", "Tumor metastasis"], answer: 1 },
+{ q: "Which stroke territory typically results in face and arm weakness?", options: ["Anterior cerebral artery", "Posterior cerebral artery", "Middle cerebral artery", "Vertebral artery"], answer: 2 },
+{ q: "What kind of language error is ‘scoon’ instead of ‘spoon’?", options: ["Semantic paraphasia", "Phonemic paraphasia", "Agrammatism", "Echolalia"], answer: 1 },
+{ q: "Which is true of conduction aphasia?", options: ["Impaired comprehension", "Fluent speech and poor repetition", "Impaired fluency and intact repetition", "Caused by Broca’s lesion"], answer: 1 },
+{ q: "Broca’s aphasia is associated with damage to:", options: ["Posterior superior temporal gyrus", "Inferior frontal gyrus", "Angular gyrus", "Medial temporal cortex"], answer: 1 },
+{ q: "Wernicke’s aphasia typically features:", options: ["Fluent but nonsensical speech", "Comprehension without fluency", "Motor deficits only", "Normal repetition skills"], answer: 0 },
+{ q: "Global aphasia results from:", options: ["Small frontal lesion", "Small temporal lesion", "Large left hemisphere stroke", "Corpus callosum damage"], answer: 2 },
+{ q: "Which is a component of the Mental Status Exam?", options: ["Gait analysis", "Lab values", "Attention testing", "Sensory reflexes"], answer: 2 },
+{ q: "A hallmark of Parkinson’s is:", options: ["Intention tremor", "Resting tremor", "Seizures", "Memory loss"], answer: 1 },
+{ q: "Huntington’s disease is associated with degeneration of:", options: ["Amygdala", "Substantia nigra", "Caudate nucleus", "Cerebellum"], answer: 2 },
+{ q: "What is the typical cause of an epidural hematoma?", options: ["Venous rupture", "Middle meningeal artery tear", "Cavernous sinus infarct", "Aneurysm rupture"], answer: 1 },
+{ q: "Which method has the best temporal resolution?", options: ["PET", "fMRI", "EEG", "CT"], answer: 2 },
+{ q: "A positive Romberg test suggests:", options: ["Cerebellar damage", "Vestibular disorder", "Dorsal column lesion", "Frontal lobe stroke"], answer: 2 },
+{ q: "What kind of seizure affects the entire brain?", options: ["Simple partial", "Complex partial", "Generalized tonic-clonic", "Focal"], answer: 2 },
+{ q: "Donepezil is used to treat:", options: ["Parkinson’s disease", "Huntington’s disease", "Alzheimer’s disease", "Multiple sclerosis"], answer: 2 },
+{ q: "Visual agnosia is most often caused by damage to:", options: ["Occipital lobe", "Parietal lobe", "Inferior temporal cortex", "Superior temporal gyrus"], answer: 2 },
+{ q: "The artery supplying the medial frontal lobe is:", options: ["Middle cerebral", "Anterior cerebral", "Posterior cerebral", "Basilar"], answer: 1 },
+{ q: "The arcuate fasciculus connects:", options: ["Wernicke's and Broca’s areas", "Left and right hemispheres", "Cortex and cerebellum", "Frontal and occipital lobes"], answer: 0 },
+{ q: "Which scan best shows amyloid deposition?", options: ["MRI", "CT", "PET", "SPECT"], answer: 2 },
+{ q: "Prosopagnosia is the inability to:", options: ["Read", "Recognize faces", "Name objects", "Recall numbers"], answer: 1 },
+{ q: "Which structure is damaged in hemineglect?", options: ["Left occipital lobe", "Right parietal lobe", "Right frontal lobe", "Bilateral hippocampi"], answer: 1 },
+{ q: "A hallmark of TBI is:", options: ["Seizure onset", "Aneurysm rupture", "Diffuse axonal injury", "Wernicke’s aphasia"], answer: 2 },
+{ q: "Which disease includes resting tremor, bradykinesia, and rigidity?", options: ["Essential tremor", "ALS", "Parkinson’s", "Alzheimer’s"], answer: 2 },
+{ q: "The posterior cerebral artery supplies:", options: ["Occipital lobe", "Frontal lobe", "Insula", "Pons"], answer: 0 },
+{ q: "Fluent aphasia with poor comprehension is:", options: ["Broca’s", "Conduction", "Wernicke’s", "Transcortical motor"], answer: 2 },
+{ q: "What causes Korsakoff syndrome?", options: ["Glucose toxicity", "Thiamine deficiency", "Dopamine excess", "Stroke"], answer: 1 },
+{ q: "What does an fMRI measure?", options: ["Glucose uptake", "Oxygenated blood levels", "Neuronal firing", "Electrical fields"], answer: 1 },
+{ q: "A key feature of visual neglect is:", options: ["Inattention to right side", "Failure to attend left space", "Inability to speak", "Object agnosia"], answer: 1 },
+{ q: "A small right MCA stroke may result in:", options: ["Aphasia", "Left arm weakness", "Right facial droop", "Ataxia"], answer: 1 },
+{ q: "The cerebellum is crucial for:", options: ["Memory", "Emotion", "Coordination", "Hearing"], answer: 2 },
+{ q: "TMS is used for:", options: ["Mapping seizure onset", "Temporary lesion studies", "Diffusion imaging", "Cortisol levels"], answer: 1 },
+{ q: "Alien hand syndrome suggests damage to:", options: ["Prefrontal cortex", "Corpus callosum", "Left motor cortex", "Basal ganglia"], answer: 1 },
+{ q: "Declarative memory includes:", options: ["Skills", "Habits", "Facts and events", "Conditioning"], answer: 2 },
+{ q: "The thalamus serves primarily as:", options: ["Speech center", "Visual processor", "Relay station", "Emotional center"], answer: 2 },
+{ q: "Working memory is localized in:", options: ["Medial temporal lobe", "Prefrontal cortex", "Parietal lobe", "Hippocampus"], answer: 1 }
+];
+
+    const form = document.getElementById("quizForm");
+    questions.forEach((item, i) => {
+      const div = document.createElement("div");
+      div.className = "question";
+      div.innerHTML = `<p>Q${i + 1}. ${item.q}</p>`;
+      item.options.forEach((opt, j) => {
+        div.innerHTML += `<label><input type="radio" name="q${i}" value="${j}"> ${opt}</label>`;
+      });
+      form.appendChild(div);
+    });
+
+    function submitQuiz() {
+      let score = 0;
+      const breakdown = document.getElementById("breakdown");
+      breakdown.innerHTML = '<h2>Answer Breakdown</h2>';
+
+      questions.forEach((item, i) => {
+        const radios = document.getElementsByName(`q${i}`);
+        let selected = -1;
+        for (const radio of radios) {
+          if (radio.checked) selected = parseInt(radio.value);
+        }
+        const correct = selected === item.answer;
+        if (correct) score++;
+
+        const div = document.createElement("div");
+        div.innerHTML = `Q${i + 1}: ${correct ? '<span class="correct">Correct</span>' : '<span class="incorrect">Incorrect (Correct: ' + item.options[item.answer] + ')</span>'}`;
+        breakdown.appendChild(div);
+
+        const questionEl = radios[0]?.closest(".question");
+        if (questionEl) {
+          const labels = questionEl.querySelectorAll("label");
+          labels.forEach((label, index) => {
+            label.classList.remove("correct", "incorrect");
+            if (index === item.answer) label.classList.add("correct");
+            else if (index === selected) label.classList.add("incorrect");
+          });
+        }
+      });
+
+      document.getElementById("result").innerText = `You scored ${score} out of ${questions.length}.`;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,327 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Psych 117 Mock Quiz</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f9f9f9; }
+        .question { margin-bottom: 20px; padding: 15px; background: #fff; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
+        .correct { color: green; }
+        .incorrect { color: red; }
+        .explanation { display: none; margin-top: 10px; }
+        #score { font-size: 20px; margin-top: 30px; }
+        button { padding: 10px 20px; font-size: 16px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Psych 117 Mock 2</h1>
+      <a href="index.html"> <p> <- BACK </p></a>
+
+    <form id="quizForm">
+<div class="question">
+<p><strong>Q1: Which of the following best characterizes anterograde amnesia?</strong></p>
+<label><input type="radio" name="q1" value="wrong"> Inability to recall childhood events</label><br>
+<label><input type="radio" name="q1" value="correct"> Difficulty learning new information</label><br>
+<label><input type="radio" name="q1" value="wrong"> Loss of procedural memory</label><br>
+<label><input type="radio" name="q1" value="wrong"> Impaired sensory perception</label><br>
+<div class="explanation" id="explanation1" data-text="Anterograde amnesia involves difficulty learning new information."></div>
+</div>
+<div class="question">
+<p><strong>Q2: What structure is most critical for encoding long-term memories?</strong></p>
+<label><input type="radio" name="q2" value="wrong"> Cerebellum</label><br>
+<label><input type="radio" name="q2" value="wrong"> Frontal lobe</label><br>
+<label><input type="radio" name="q2" value="correct"> Hippocampus</label><br>
+<label><input type="radio" name="q2" value="wrong"> Amygdala</label><br>
+<div class="explanation" id="explanation2" data-text="The hippocampus is essential for forming new long-term memories."></div>
+</div>
+<div class="question">
+<p><strong>Q3: Which memory function remains intact in patients with hippocampal damage?</strong></p>
+<label><input type="radio" name="q3" value="wrong"> Long-term episodic memory</label><br>
+<label><input type="radio" name="q3" value="correct"> Procedural learning</label><br>
+<label><input type="radio" name="q3" value="wrong"> Semantic recall</label><br>
+<label><input type="radio" name="q3" value="wrong"> Memory consolidation during sleep</label><br>
+<div class="explanation" id="explanation3" data-text="Procedural learning is preserved because it relies on the basal ganglia and cerebellum, not the hippocampus."></div>
+</div>
+<div class="question">
+<p><strong>Q4: Which of the following would most likely be impaired in a patient with frontal lobe damage?</strong></p>
+<label><input type="radio" name="q4" value="wrong"> Long-term memory</label><br>
+<label><input type="radio" name="q4" value="wrong"> Declarative memory</label><br>
+<label><input type="radio" name="q4" value="correct"> Short-term memory</label><br>
+<label><input type="radio" name="q4" value="wrong"> Procedural memory</label><br>
+<div class="explanation" id="explanation4" data-text="Frontal lobe damage often impacts short-term memory functions."></div>
+</div>
+<div class="question">
+<p><strong>Q5: Damage to the Papez circuit would most likely impair which type of memory?</strong></p>
+<label><input type="radio" name="q5" value="wrong"> Working memory</label><br>
+<label><input type="radio" name="q5" value="wrong"> Short-term memory</label><br>
+<label><input type="radio" name="q5" value="correct"> Episodic memory</label><br>
+<label><input type="radio" name="q5" value="wrong"> Procedural memory</label><br>
+<div class="explanation" id="explanation5" data-text="The Papez circuit is crucial for consolidating long-term episodic memories."></div>
+</div>
+<div class="question">
+<p><strong>Q6: Confabulation is a hallmark of which condition?</strong></p>
+<label><input type="radio" name="q6" value="wrong"> Alzheimer's disease</label><br>
+<label><input type="radio" name="q6" value="correct"> Wernicke-Korsakoff Syndrome</label><br>
+<label><input type="radio" name="q6" value="wrong"> Parkinson's disease</label><br>
+<label><input type="radio" name="q6" value="wrong"> Multiple sclerosis</label><br>
+<div class="explanation" id="explanation6" data-text="Wernicke-Korsakoff Syndrome is known for confabulation due to thiamine deficiency."></div>
+</div>
+<div class="question">
+<p><strong>Q7: Procedural memory relies heavily on which brain areas?</strong></p>
+<label><input type="radio" name="q7" value="wrong"> Hippocampus and amygdala</label><br>
+<label><input type="radio" name="q7" value="correct"> Basal ganglia and cerebellum</label><br>
+<label><input type="radio" name="q7" value="wrong"> Frontal cortex and thalamus</label><br>
+<label><input type="radio" name="q7" value="wrong"> Occipital lobe and parietal lobe</label><br>
+<div class="explanation" id="explanation7" data-text="Procedural memory involves the basal ganglia and cerebellum."></div>
+</div>
+<div class="question">
+<p><strong>Q8: Damage to the orbital prefrontal cortex primarily causes deficits in:</strong></p>
+<label><input type="radio" name="q8" value="wrong"> Planning and attention</label><br>
+<label><input type="radio" name="q8" value="wrong"> Language production</label><br>
+<label><input type="radio" name="q8" value="correct"> Emotional and behavioral regulation</label><br>
+<label><input type="radio" name="q8" value="wrong"> Spatial processing</label><br>
+<div class="explanation" id="explanation8" data-text="Orbital PFC damage affects behavior and emotional regulation."></div>
+</div>
+<div class="question">
+<p><strong>Q9: Which task tests the ability to inhibit an automatic response?</strong></p>
+<label><input type="radio" name="q9" value="wrong"> Trail Making Test</label><br>
+<label><input type="radio" name="q9" value="correct"> Stroop Task</label><br>
+<label><input type="radio" name="q9" value="wrong"> Wisconsin Card Sorting Test</label><br>
+<label><input type="radio" name="q9" value="wrong"> Mirror Tracing Task</label><br>
+<div class="explanation" id="explanation9" data-text="The Stroop Task tests response inhibition."></div>
+</div>
+<div class="question">
+<p><strong>Q10: What is “utilization behavior”?</strong></p>
+<label><input type="radio" name="q10" value="wrong"> Inability to stop ongoing actions</label><br>
+<label><input type="radio" name="q10" value="correct"> Using objects inappropriately due to environmental triggers</label><br>
+<label><input type="radio" name="q10" value="wrong"> Inability to follow rules</label><br>
+<label><input type="radio" name="q10" value="wrong"> Habitual repetition of a task</label><br>
+<div class="explanation" id="explanation10" data-text="Utilization behavior is when patients interact with objects based on visual cues, regardless of appropriateness."></div>
+</div>
+<div class="question">
+<p><strong>Q11: Phineas Gage’s injury caused which type of deficit?</strong></p>
+<label><input type="radio" name="q11" value="wrong"> Severe language loss</label><br>
+<label><input type="radio" name="q11" value="wrong"> Memory impairment</label><br>
+<label><input type="radio" name="q11" value="correct"> Personality change</label><br>
+<label><input type="radio" name="q11" value="wrong"> Visual agnosia</label><br>
+<div class="explanation" id="explanation11" data-text="Gage’s injury caused a personality shift due to damage in the orbital frontal cortex."></div>
+</div>
+<div class="question">
+<p><strong>Q12: Which lobe is the last to develop fully in humans?</strong></p>
+<label><input type="radio" name="q12" value="wrong"> Temporal</label><br>
+<label><input type="radio" name="q12" value="correct"> Frontal</label><br>
+<label><input type="radio" name="q12" value="wrong"> Occipital</label><br>
+<label><input type="radio" name="q12" value="wrong"> Parietal</label><br>
+<div class="explanation" id="explanation12" data-text="The frontal lobe is the last to mature, often into the 20s or 30s."></div>
+</div>
+<div class="question">
+<p><strong>Q13: Patients with frontal lobe damage often show:</strong></p>
+<label><input type="radio" name="q13" value="wrong"> Low IQ</label><br>
+<label><input type="radio" name="q13" value="correct"> Deficits in executive functioning but preserved IQ</label><br>
+<label><input type="radio" name="q13" value="wrong"> Enhanced verbal fluency</label><br>
+<label><input type="radio" name="q13" value="wrong"> Loss of procedural memory</label><br>
+<div class="explanation" id="explanation13" data-text="Executive function may be impaired despite normal IQ scores."></div>
+</div>
+<div class="question">
+<p><strong>Q14: Which test involves alternating between numbers and letters to assess multitasking?</strong></p>
+<label><input type="radio" name="q14" value="wrong"> Stroop Test</label><br>
+<label><input type="radio" name="q14" value="correct"> Trail Making Test</label><br>
+<label><input type="radio" name="q14" value="wrong"> Mirror Tracing Task</label><br>
+<label><input type="radio" name="q14" value="wrong"> WAIS</label><br>
+<div class="explanation" id="explanation14" data-text="The Trail Making Test assesses cognitive flexibility and multitasking."></div>
+</div>
+<div class="question">
+<p><strong>Q15: What brain pathway is primarily involved in object recognition?</strong></p>
+<label><input type="radio" name="q15" value="wrong"> Dorsal stream</label><br>
+<label><input type="radio" name="q15" value="correct"> Ventral stream</label><br>
+<label><input type="radio" name="q15" value="wrong"> Corticospinal tract</label><br>
+<label><input type="radio" name="q15" value="wrong"> Spinothalamic tract</label><br>
+<div class="explanation" id="explanation15" data-text="The ventral stream, or 'what' pathway, is for object identification."></div>
+</div>
+<div class="question">
+<p><strong>Q16: Akinetopsia is caused by damage to:</strong></p>
+<label><input type="radio" name="q16" value="wrong"> V4</label><br>
+<label><input type="radio" name="q16" value="correct"> V5</label><br>
+<label><input type="radio" name="q16" value="wrong"> Broca’s area</label><br>
+<label><input type="radio" name="q16" value="wrong"> Hippocampus</label><br>
+<div class="explanation" id="explanation16" data-text="V5 damage leads to motion blindness or akinetopsia."></div>
+</div>
+<div class="question">
+<p><strong>Q17: Neglect syndrome typically occurs following damage to:</strong></p>
+<label><input type="radio" name="q17" value="wrong"> Left occipital lobe</label><br>
+<label><input type="radio" name="q17" value="correct"> Right parietal lobe</label><br>
+<label><input type="radio" name="q17" value="wrong"> Left temporal lobe</label><br>
+<label><input type="radio" name="q17" value="wrong"> Right occipital lobe</label><br>
+<div class="explanation" id="explanation17" data-text="Neglect arises from damage to the right parietal lobe."></div>
+</div>
+<div class="question">
+<p><strong>Q18: Which is *not* typically correlated with short-term memory function?</strong></p>
+<label><input type="radio" name="q18" value="wrong"> Reasoning abilities</label><br>
+<label><input type="radio" name="q18" value="wrong"> Reading comprehension</label><br>
+<label><input type="radio" name="q18" value="correct"> Motor skill learning</label><br>
+<label><input type="radio" name="q18" value="wrong"> Note-taking</label><br>
+<div class="explanation" id="explanation18" data-text="Motor skill learning is procedural, not reliant on STM."></div>
+</div>
+<div class="question">
+<p><strong>Q19: Patients with visual agnosia can typically:</strong></p>
+<label><input type="radio" name="q19" value="wrong"> Verbally identify objects</label><br>
+<label><input type="radio" name="q19" value="wrong"> Use objects correctly</label><br>
+<label><input type="radio" name="q19" value="correct"> Recognize objects through touch</label><br>
+<label><input type="radio" name="q19" value="wrong"> Draw objects from memory</label><br>
+<div class="explanation" id="explanation19" data-text="They can recognize by other senses like touch or sound."></div>
+</div>
+<div class="question">
+<p><strong>Q20: The 'where' pathway projects to which lobe?</strong></p>
+<label><input type="radio" name="q20" value="wrong"> Temporal</label><br>
+<label><input type="radio" name="q20" value="wrong"> Frontal</label><br>
+<label><input type="radio" name="q20" value="wrong"> Occipital</label><br>
+<label><input type="radio" name="q20" value="correct"> Parietal</label><br>
+<div class="explanation" id="explanation20" data-text="The dorsal or 'where' pathway ends in the parietal lobe."></div>
+</div>
+<div class="question">
+<p><strong>Q21: Which neurotransmitter is associated with reward and movement?</strong></p>
+<label><input type="radio" name="q21" value="wrong"> GABA</label><br>
+<label><input type="radio" name="q21" value="correct"> Dopamine</label><br>
+<label><input type="radio" name="q21" value="wrong"> Glutamate</label><br>
+<label><input type="radio" name="q21" value="wrong"> Acetylcholine</label><br>
+<div class="explanation" id="explanation21" data-text="Dopamine is key to reward and motor pathways."></div>
+</div>
+<div class="question">
+<p><strong>Q22: Agenesis of the corpus callosum affects:</strong></p>
+<label><input type="radio" name="q22" value="wrong"> Vision</label><br>
+<label><input type="radio" name="q22" value="wrong"> Language</label><br>
+<label><input type="radio" name="q22" value="correct"> Interhemispheric communication</label><br>
+<label><input type="radio" name="q22" value="wrong"> Cerebellar coordination</label><br>
+<div class="explanation" id="explanation22" data-text="Without the corpus callosum, hemispheres can't communicate properly."></div>
+</div>
+<div class="question">
+<p><strong>Q23: The left hemisphere is typically dominant for:</strong></p>
+<label><input type="radio" name="q23" value="wrong"> Spatial processing</label><br>
+<label><input type="radio" name="q23" value="wrong"> Emotional recognition</label><br>
+<label><input type="radio" name="q23" value="correct"> Language</label><br>
+<label><input type="radio" name="q23" value="wrong"> Visuospatial memory</label><br>
+<div class="explanation" id="explanation23" data-text="Language is typically left-hemisphere dominant."></div>
+</div>
+<div class="question">
+<p><strong>Q24: After a stroke, excessive release of which neurotransmitter can lead to more damage?</strong></p>
+<label><input type="radio" name="q24" value="wrong"> GABA</label><br>
+<label><input type="radio" name="q24" value="correct"> Glutamate</label><br>
+<label><input type="radio" name="q24" value="wrong"> Dopamine</label><br>
+<label><input type="radio" name="q24" value="wrong"> Serotonin</label><br>
+<div class="explanation" id="explanation24" data-text="Glutamate excitotoxicity can worsen neuronal injury."></div>
+</div>
+<div class="question">
+<p><strong>Q25: Which neurotransmitter is primarily inhibitory?</strong></p>
+<label><input type="radio" name="q25" value="correct"> GABA</label><br>
+<label><input type="radio" name="q25" value="wrong"> Glutamate</label><br>
+<label><input type="radio" name="q25" value="wrong"> Serotonin</label><br>
+<label><input type="radio" name="q25" value="wrong"> Norepinephrine</label><br>
+<div class="explanation" id="explanation25" data-text="GABA is the main inhibitory neurotransmitter."></div>
+</div>
+<div class="question">
+<p><strong>Q26: Which structure produces dopamine for motor functions?</strong></p>
+<label><input type="radio" name="q26" value="wrong"> VTA</label><br>
+<label><input type="radio" name="q26" value="correct"> Substantia nigra</label><br>
+<label><input type="radio" name="q26" value="wrong"> Locus coeruleus</label><br>
+<label><input type="radio" name="q26" value="wrong"> Nucleus basalis</label><br>
+<div class="explanation" id="explanation26" data-text="The substantia nigra sends dopamine to the basal ganglia."></div>
+</div>
+<div class="question">
+<p><strong>Q27: Which neurotransmitter is involved in long-term memory and affected in Alzheimer’s?</strong></p>
+<label><input type="radio" name="q27" value="wrong"> Dopamine</label><br>
+<label><input type="radio" name="q27" value="correct"> Acetylcholine</label><br>
+<label><input type="radio" name="q27" value="wrong"> Norepinephrine</label><br>
+<label><input type="radio" name="q27" value="wrong"> Serotonin</label><br>
+<div class="explanation" id="explanation27" data-text="Acetylcholine is critical for hippocampal function and LTM."></div>
+</div>
+<div class="question">
+<p><strong>Q28: Which area produces serotonin?</strong></p>
+<label><input type="radio" name="q28" value="wrong"> VTA</label><br>
+<label><input type="radio" name="q28" value="correct"> Raphe nuclei</label><br>
+<label><input type="radio" name="q28" value="wrong"> Nucleus basalis</label><br>
+<label><input type="radio" name="q28" value="wrong"> Substantia nigra</label><br>
+<div class="explanation" id="explanation28" data-text="Serotonin is made in the Raphe nuclei."></div>
+</div>
+<div class="question">
+<p><strong>Q29: Brain plasticity includes all *except*:</strong></p>
+<label><input type="radio" name="q29" value="wrong"> Peripheral regeneration</label><br>
+<label><input type="radio" name="q29" value="correct"> Central axon regrowth</label><br>
+<label><input type="radio" name="q29" value="wrong"> Functional reorganization</label><br>
+<label><input type="radio" name="q29" value="wrong"> Network compensation</label><br>
+<div class="explanation" id="explanation29" data-text="Central nervous system axons do not regenerate well."></div>
+</div>
+<div class="question">
+<p><strong>Q30: Alien hand syndrome is linked to:</strong></p>
+<label><input type="radio" name="q30" value="wrong"> Wernicke’s area</label><br>
+<label><input type="radio" name="q30" value="wrong"> Left frontal cortex</label><br>
+<label><input type="radio" name="q30" value="correct"> Split brain</label><br>
+<label><input type="radio" name="q30" value="wrong"> Visual cortex damage</label><br>
+<div class="explanation" id="explanation30" data-text="Split-brain patients may show alien hand due to hemispheric isolation."></div>
+</div>
+<div class="question">
+<p><strong>Q31: Which is *not* a hallmark feature of Parkinson’s disease?</strong></p>
+<label><input type="radio" name="q31" value="wrong"> Resting tremor</label><br>
+<label><input type="radio" name="q31" value="correct"> Chorea</label><br>
+<label><input type="radio" name="q31" value="wrong"> Bradykinesia</label><br>
+<label><input type="radio" name="q31" value="wrong"> Cogwheel rigidity</label><br>
+<div class="explanation" id="explanation31" data-text="Chorea is typical of Huntington’s, not Parkinson’s."></div>
+</div>
+<div class="question">
+<p><strong>Q32: Which disorder is caused by an autosomal dominant mutation on chromosome 4?</strong></p>
+<label><input type="radio" name="q32" value="wrong"> Parkinson’s</label><br>
+<label><input type="radio" name="q32" value="wrong"> Alzheimer’s</label><br>
+<label><input type="radio" name="q32" value="correct"> Huntington’s</label><br>
+<label><input type="radio" name="q32" value="wrong"> ALS</label><br>
+<div class="explanation" id="explanation32" data-text="Huntington's disease is caused by a dominant mutation on chromosome 4."></div>
+</div>
+<div class="question">
+<p><strong>Q33: Deep Brain Stimulation is most effective in treating:</strong></p>
+<label><input type="radio" name="q33" value="wrong"> Bradykinesia</label><br>
+<label><input type="radio" name="q33" value="wrong"> Dementia</label><br>
+<label><input type="radio" name="q33" value="correct"> Resting tremor</label><br>
+<label><input type="radio" name="q33" value="wrong"> Gait disturbances</label><br>
+<div class="explanation" id="explanation33" data-text="DBS works best for tremors, less for bradykinesia."></div>
+</div>
+<div class="question">
+<p><strong>Q34: What distinguishes a meningioma from a glioma?</strong></p>
+<label><input type="radio" name="q34" value="wrong"> Meningiomas are malignant</label><br>
+<label><input type="radio" name="q34" value="wrong"> Gliomas have well-defined borders</label><br>
+<label><input type="radio" name="q34" value="correct"> Meningiomas can be surgically removed</label><br>
+<label><input type="radio" name="q34" value="wrong"> Gliomas originate from dura cells</label><br>
+<div class="explanation" id="explanation34" data-text="Meningiomas are slow-growing and surgically resectable."></div>
+</div>
+<div class="question">
+<p><strong>Q35: Which brain structure degenerates in both Parkinson’s and Huntington’s?</strong></p>
+<label><input type="radio" name="q35" value="wrong"> Hippocampus</label><br>
+<label><input type="radio" name="q35" value="correct"> Basal ganglia</label><br>
+<label><input type="radio" name="q35" value="wrong"> Cerebellum</label><br>
+<label><input type="radio" name="q35" value="wrong"> Thalamus</label><br>
+<div class="explanation" id="explanation35" data-text="Both diseases affect basal ganglia, though in different regions."></div>
+</div>
+
+        <button type="button" onclick="checkAnswers()">Submit</button>
+    </form>
+    <div id="score"></div>
+    <script>
+        function checkAnswers() {
+            let correct = 0;
+            const total = 35;
+            for (let i = 1; i <= total; i++) {
+                const question = document.querySelector('input[name="q' + i + '"]:checked');
+                const explanation = document.getElementById('explanation' + i);
+                if (question) {
+                    if (question.value === "correct") {
+                        correct++;
+                        explanation.innerHTML = '<span class="correct">Correct!</span> ' + explanation.dataset.text;
+                    } else {
+                        explanation.innerHTML = '<span class="incorrect">Incorrect.</span> ' + explanation.dataset.text;
+                    }
+                } else {
+                    explanation.innerHTML = '<span class="incorrect">No answer selected.</span> ' + explanation.dataset.text;
+                }
+                explanation.style.display = 'block';
+            }
+            document.getElementById('score').textContent = `You got ${correct} out of ${total} correct.`;
+        }
+    </script>
